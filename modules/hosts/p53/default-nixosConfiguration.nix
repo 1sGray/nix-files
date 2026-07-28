@@ -10,12 +10,19 @@
 		imports = [
 		    self.nixosModules.machineHardware
 		    self.nixosModules.niri
-		    self.nixosModules.myGrub
+		    # self.nixosModules.myGrub
 		];
 
 		# Bootloader.
-		boot.loader.systemd-boot.enable = true;
+		# boot.loader.systemd-boot.enable = true;
 		boot.loader.efi.canTouchEfiVariables = true;
+		boot.loader.grub = {
+			enable = true;
+			efiSupport = true;
+			device = "nodev";
+			useOSProber = true;
+
+		};
 
 		# Use latest kernel.
 		boot.kernelPackages = pkgs.linuxPackages_latest;
