@@ -10,6 +10,7 @@
 		imports = [
 		    self.nixosModules.machineHardware
 		    self.nixosModules.niri
+		    self.nixosModules.myGrub
 		];
 
 		# Bootloader.
