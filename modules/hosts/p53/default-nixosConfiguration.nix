@@ -26,6 +26,7 @@
 
 		console = {
 			colors = [
+				# Solrized Dark
 				"002b36"
 				"dc322f"
 				"859900"
@@ -42,6 +43,24 @@
 				"6c71c4"
 				"93a1a1"
 				"fdf6e3"
+
+				#Gruvbox Hard Dark
+				"1d2021"  # black — bg0_h (hard background)
+				"cc241d"  # red
+				"98971a"  # green
+				"d79921"  # yellow
+				"458588"  # blue
+				"b16286"  # magenta — purple
+				"689d6a"  # cyan — aqua
+				"a89984"  # white — fg4 (gray)
+				"928374"  # bright black — gray
+				"fb4934"  # bright red
+				"b8bb26"  # bright green
+				"fabd2f"  # bright yellow
+				"83a598"  # bright blue
+				"d3869b"  # bright magenta — purple
+				"8ec07c"  # bright cyan — aqua
+				"ebdbb2"  # bright white — fg1 (foreground)
 			];
 		};
 
