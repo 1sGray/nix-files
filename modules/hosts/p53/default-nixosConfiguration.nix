@@ -24,7 +24,28 @@
 
 		};
 
+		fonts = {
+			enableDefaultPackages = true;
+
+			packages = with pkgs; [
+				nerd-fonts.fira-code
+				nerd-fonts.jetbrains-mono
+				noto-fonts
+				noto-fonts-cjk-sans
+				noto-fonts-color-emoji
+				# liberaton_ttf
+			];
+
+			fontconfig.defaultFonts = {
+				monospace = [ "FiraCode Nerd Font" ];
+				sansSerif = [ "Noto Sans" ];
+				serif = [ "Noto Serif" ];
+			};
+
+		};
+
 		console = {
+
 			colors = [
 				# Solrized Dark
 				# "002b36"
@@ -62,6 +83,12 @@
 				"8ec07c"  # bright cyan — aqua
 				"ebdbb2"  # bright white — fg1 (foreground)
 			];
+
+			packages = [
+				pkgs.terminus_font
+			];
+
+			font = "ter-v18b";
 		};
 
 		# Use latest kernel.
