@@ -88,7 +88,8 @@
 				pkgs.terminus_font
 			];
 
-			font = "ter-v18b";
+			font = "${pkgs.terminus_font}/share/consolefonts/ter-u20b.psf.gz";
+			earlySetup = true;
 		};
 
 		# Use latest kernel.
