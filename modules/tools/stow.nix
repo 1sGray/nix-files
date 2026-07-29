@@ -12,10 +12,10 @@
 						feature=''${feature%/}"
 						[ -d "$feature/config" ] && stow -v -d "$feature" -t "$HOME" config
 					done
-				'':
+				'';
 			};
 		in {
 			apps.stow-dotfiles.program = lib.getExe stowScript;
 		};
-	};
+
 }

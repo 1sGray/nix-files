@@ -3,7 +3,7 @@
 	perSystem = { pkgs, ... }: {
 		packages.neovim = inputs.wrapper-modules.wrappers.neovim.wrap {
 			inherit pkgs;
-			settings.config_directory = ./config/.config/nvim:
+			settings.config_directory = ./config/.config/nvim;
 		};
 	};
 
