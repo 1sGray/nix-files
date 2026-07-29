@@ -3,7 +3,7 @@
 		packages.myNoctalia = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
 			inherit pkgs;
 			settings = (builtins.fromJSON
-				(builtins.readFile ./noctalia/noctalia.json)
+				(builtins.readFile ./config/noctalia.json)
 			).settings;
 		};
 	};
