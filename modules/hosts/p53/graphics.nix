@@ -5,7 +5,7 @@
     boot.initrd.kernelModules = [ "i915" ]; # early KMS font fix
 
     #Xorg drivers (needed even w/o xorg & on Wayland): "modesetting" handles the Intel iGPU, "nvidia" is required of dGPU
-    services.xserver.vidoeDrivers = [ "modesetting" "nvidia" ];
+    services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
 
     hardware.graphics.enable = true; # OpenGL/Vulkan userspace support
 

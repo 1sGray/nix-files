@@ -9,10 +9,11 @@
   flake.nixosModules.machineConfiguration = { pkgs, lib, ... }: {
     imports = [
         self.nixosModules.machineHardware
+        self.nixosModules.p53Graphics
         self.nixosModules.niri
         self.nixosModules.neovim
         # self.nixosModules.myGrub
-        self.nixosModules.p53Graphics
+	self.nixosModules.zellij
     ];
 
 		# Bootloader.
