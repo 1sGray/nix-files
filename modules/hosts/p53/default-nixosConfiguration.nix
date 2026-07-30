@@ -13,7 +13,7 @@
         self.nixosModules.niri
         self.nixosModules.neovim
         # self.nixosModules.myGrub
-	self.nixosModules.zellij
+	# self.wrappers.zellij
     ];
 
 		# Bootloader.

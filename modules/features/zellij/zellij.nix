@@ -1,15 +1,16 @@
 { self, inputs, ... }: {
+	imports = [ inputs.wrapper-modules.flakeModules.wrappers ];
 
-	flake.nixosModules.zellij = { pkgs, lib, ... }: {
+	flake.nixosModules.zellij = { pkgs, lib, self', ... }: {
 		programs.zellij = {
 			enable = true;
-			package = self.packages.${pkgs.stdenv.hostPlatform.system}.zellij;
+			package = self'.packages.myZellij;
 		};
 	};
 	
-	perSystem = { pkgs, lib, wlib, config, ... }: {
+	perSystem = { pkgs, lib, wlib, config, inputs', ... }: {
 
-		packages.zellij = inputs.wrapper-modules.wrappers.zellij {
+		packages.myZellij = inputs'.wrapper-modules.wrappers.zellij.wrap {
 			inherit pkgs;
 
 			imports = [ wlib.modules.default ];
@@ -20,9 +21,8 @@
 				description = "Directory containing config.kdl and layouts/ for zellij.";
 			};
 
-			# config.package = lib.mkDefault pkgs.zellij;
+			config.package = lib.mkDefault pkgs.zellij;
 			config.envDefault.ZELLIJ_CONFIG_DIR = "${config.settings.config_directory}";
 		};
 	};
-
 }
