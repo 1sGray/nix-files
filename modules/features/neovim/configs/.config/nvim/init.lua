@@ -12,32 +12,32 @@ vim.g.have_nerd_font = true
 
 -- ### Plugins ### --
 vim.pack.add({ -- Plugin Repos
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { src = "https://github.com/Saghen/blink.cmp"},
+  -- { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  -- { src = "https://github.com/Saghen/blink.cmp"},
   -- { src = ""},
   -- { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/ellisonleao/gruvbox.nvim" },
+  -- { src = "https://github.com/ellisonleao/gruvbox.nvim" },
   -- QOL Plugins
 })
 
 --  Treesitter
-require("nvim-treesitter.configs").setup({
-  enshure_installed = {
-    "lua",
-    "rust",
-  },
-})
+-- require("nvim-treesitter.configs").setup({
+--   enshure_installed = {
+--     "lua",
+--     "rust",
+--   },
+-- })
 
 -- Blink.cmp
-require("blink.cmp").setup({
-  signature = { enabled = true },
-  fuzzy = { implementation = "lua" },
-})
+-- require("blink.cmp").setup({
+--   signature = { enabled = true },
+--   fuzzy = { implementation = "lua" },
+-- })
 -- ### LSPs ### --
-vim.lsp.enable({
-  "lua_ls",
-  "rust_analyzer",
-})
+-- vim.lsp.enable({
+--   "lua_ls",
+--   "rust_analyzer",
+-- })
 -- lua_ls
 --require "lspconfig".lua_ls.setup {}
 -- rust-analyzer
@@ -51,7 +51,7 @@ vim.lsp.enable({
 
 -- ### Options ### --
 -- Themes
-vim.cmd("colorscheme gruvbox")
+-- vim.cmd("colorscheme gruvbox")
 -- Theme Plugins
 -- Searching and Patterns                                                                                                                    vim.opt.incsearch = true -- highlight all matches while incrementally searching
 -- vim.opt.ingnorecase = true -- ignore case in search patterns -- TODO: for some reason error when enabled

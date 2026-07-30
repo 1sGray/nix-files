@@ -6,13 +6,14 @@
 		];
 	};
 
-	flake.nixosModules.machineConfiguration = { pkgs, lib, ... }: {
-		imports = [
-		    self.nixosModules.machineHardware
-		    self.nixosModules.niri
-		    self.nixosModules.neovim
-		    # self.nixosModules.myGrub
-		];
+  flake.nixosModules.machineConfiguration = { pkgs, lib, ... }: {
+    imports = [
+        self.nixosModules.machineHardware
+        self.nixosModules.niri
+        self.nixosModules.neovim
+        # self.nixosModules.myGrub
+        # self.nixosModules.p53Graphics
+    ];
 
 		# Bootloader.
 		# boot.loader.systemd-boot.enable = true;
@@ -89,7 +90,8 @@
 				pkgs.terminus_font
 			];
 
-			font = "${pkgs.terminus_font}/share/consolefonts/ter-u20b.psf.gz";
+			# font = "${pkgs.terminus_font}/share/consolefonts/ter-u20b.psf.gz";
+      font = "ter-u20b";
 			earlySetup = true;
 		};
 
