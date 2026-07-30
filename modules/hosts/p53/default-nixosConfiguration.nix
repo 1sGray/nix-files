@@ -14,6 +14,7 @@
         self.nixosModules.neovim
         # self.nixosModules.myGrub
 	self.nixosModules.zellij
+	self.nixosModules.fastfetch
     ];
 
 		# Bootloader.
