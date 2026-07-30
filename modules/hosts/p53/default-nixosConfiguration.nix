@@ -12,7 +12,7 @@
         self.nixosModules.niri
         self.nixosModules.neovim
         # self.nixosModules.myGrub
-        # self.nixosModules.p53Graphics
+        self.nixosModules.p53Graphics
     ];
 
 		# Bootloader.
