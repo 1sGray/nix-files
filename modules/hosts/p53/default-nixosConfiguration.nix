@@ -120,10 +120,10 @@
 		};
 
 		# Configure keymap in X11
-		services.xserver.xkb = {
-		  layout = "us";
-		  variant = "";
-		};
+		# services.xserver.xkb = {
+		#   layout = "us";
+		#   variant = "";
+		# };
 
 		# Define a user account. Don't forget to set a password with ‘passwd’.
 		users.users."gray" = {
@@ -139,7 +139,7 @@
 		# List packages installed in system profile. To search, run:
 		# $ nix search wget
 		environment.systemPackages = with pkgs; [
-		  neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+		  # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 		  wget
 		  git
 		  brave
