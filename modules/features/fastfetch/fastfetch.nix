@@ -7,9 +7,9 @@
 	perSystem = { pkgs, lib, self, ... }: {
 		packages.myFastfetch = inputs.wrapper-modules.wrappers.fastfetch.wrap {
 			inherit pkgs;
-			# appendFlag = [
-			# 	[ "--config" ./configs/.config/fastfetch ]
-			# ];
+			constructFiles.generatedConfig.content = lib.mkForce (
+				builtins.readFile ./configs/.config/fastfetch/config.jsonc
+			);
 		};
 	};
 }
