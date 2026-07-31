@@ -17,8 +17,19 @@
 
 				xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
-				input.keyboard = {
+				input = {
+
+					keyboard = {
 					xkb.layout = "us";
+					};
+
+					touchpad = {
+						click-method = "clickfinger";
+						tap = _: { };
+						natural-scroll = _: { };
+						dwt = _: { }; # disable while typing
+						dwtp = _: { }; # disable while trackpointing
+					};
 				};
 
 				layout.gaps = 5;
