@@ -19,6 +19,7 @@
 			self.nixosModules.zellij
 			self.nixosModules.fastfetch
 			self.nixosModules.zsh
+			self.nixosModules.starship
 		];
 
 #=====================================================================================================
