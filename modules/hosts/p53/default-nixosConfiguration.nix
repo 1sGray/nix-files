@@ -1,6 +1,8 @@
 { self, inputs, ... }: {
 
 	flake.nixosConfigurations.p53 = inputs.nixpkgs.lib.nixosSystem {
+		
+		specialArgs = { inherit self inputs; };
 		modules = [
 			self.nixosModules.machineConfiguration
 		];

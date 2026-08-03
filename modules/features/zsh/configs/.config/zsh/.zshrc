@@ -35,15 +35,16 @@ setopt NUMERIC_GLOB_SORT  # Sort numbers intuitivly (i.e 10 is after 9, not 1)
 # Modular Config Files
 # ==========================================
 
-source "$ZDOTDIR/fzf.zsh"       # Fzf configuration
+local this_dir="${0:A;h}"
+source "$this_dir/fzf.zsh"       # Fzf configuration
 
-source "$ZDOTDIR/aliases.zsh"   # Aliases
+source "$this_dir/aliases.zsh"   # Aliases
 
-source "$ZDOTDIR/bindings.zsh"  # Custom Keybindings
+source "$this_dir/bindings.zsh"  # Custom Keybindings
 
-source "$ZDOTDIR/plugins.zsh"   # Plugins and plugin manager
+source "$this_dir/plugins.zsh"   # Plugins and plugin manager
 
-source "$ZDOTDIR/prompt.zsh"    # Prompt theme
+source "$this_dir/prompt.zsh"    # Prompt theme
 
 # ==========================================
 # Smart Directory Navigation

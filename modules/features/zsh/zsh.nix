@@ -17,6 +17,7 @@
 
 			zdotdir = ./configs/.config/zsh;
 			skipGlobalRC = true;
+			hmSessionVariables = null;
 		};
 
 	};
