@@ -56,10 +56,8 @@ source "$this_dir/prompt.zsh"    # Prompt theme
 # Completion
 # ==========================================
 
-autoload -Uz compinit                                   # Load completion system
-
-
-compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"             # Initalizing completion with cached metadata file
+# autoload -Uz compinit                                   # Load completion system DISABLED: using zsh-autocomlete plugin.
+# compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"             # Initalizing completion with cached metadata file DISABLED: using zsh-autocomlete plugin.
 
 zstyle ':completion:*' menu select                      # Enable interactive completion menu selection
 
