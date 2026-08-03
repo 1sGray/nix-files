@@ -35,7 +35,7 @@ setopt NUMERIC_GLOB_SORT  # Sort numbers intuitivly (i.e 10 is after 9, not 1)
 # Modular Config Files
 # ==========================================
 
-local this_dir="${0:A;h}"
+local this_dir="${0:A:h}"
 source "$this_dir/fzf.zsh"       # Fzf configuration
 
 source "$this_dir/aliases.zsh"   # Aliases
