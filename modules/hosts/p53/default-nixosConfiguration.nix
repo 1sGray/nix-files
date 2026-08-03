@@ -6,18 +6,54 @@
 		];
 	};
 
-  flake.nixosModules.machineConfiguration = { pkgs, lib, ... }: {
-    imports = [
-        self.nixosModules.machineHardware
-        self.nixosModules.p53Graphics
-        self.nixosModules.niri
-        self.nixosModules.neovim
-        # self.nixosModules.myGrub
-	self.nixosModules.zellij
-	self.nixosModules.fastfetch
-    ];
+	flake.nixosModules.machineConfiguration = { pkgs, lib, ... }: {
 
-		# Bootloader.
+		imports = [
+			self.nixosModules.machineHardware
+			self.nixosModules.p53Graphics
+			self.nixosModules.niri
+			self.nixosModules.neovim
+			# self.nixosModules.myGrub
+			self.nixosModules.zellij
+			self.nixosModules.fastfetch
+			self.nixosModules.zsh
+		];
+
+#=====================================================================================================
+# Users
+#=====================================================================================================
+
+		# Define a user account. Don't forget to set a password with ‘passwd’.
+
+		users.users."gray" = {
+			isNormalUser = true;
+			description = "Gray";
+			extraGroups = [ "networkmanager" "wheel" ];
+			packages = with pkgs; [];
+			shell = self.packages.${pkgs.stdenv.hostPlatform.system}.myZsh;
+		};
+
+#=====================================================================================================
+# Global Packages
+#=====================================================================================================
+
+		# List packages installed in system profile. To search, run:
+		# $ nix search wget
+
+		environment.systemPackages = with pkgs; [
+			# neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+			wget
+			git
+			brave
+		];
+
+		
+		nixpkgs.config.allowUnfree = true; # Allow unfree packages
+
+#=====================================================================================================
+# Bootloader
+#=====================================================================================================
+
 		# boot.loader.systemd-boot.enable = true;
 		boot.loader.efi.canTouchEfiVariables = true;
 		boot.loader.grub = {
@@ -27,6 +63,10 @@
 			useOSProber = true;
 
 		};
+
+#=====================================================================================================
+# Fonts
+#=====================================================================================================
 
 		fonts = {
 			enableDefaultPackages = true;
@@ -47,6 +87,10 @@
 			};
 
 		};
+
+#=====================================================================================================
+# TTY
+#=====================================================================================================
 
 		console = {
 
@@ -71,40 +115,51 @@
 
 				#Gruvbox Hard Dark
 				"1d2021"  # black — bg0_h (hard background)
-				"cc241d"  # red
-				"98971a"  # green
-				"d79921"  # yellow
-				"458588"  # blue
-				"b16286"  # magenta — purple
-				"689d6a"  # cyan — aqua
-				"a89984"  # white — fg4 (gray)
-				"928374"  # bright black — gray
-				"fb4934"  # bright red
-				"b8bb26"  # bright green
-				"fabd2f"  # bright yellow
-				"83a598"  # bright blue
-				"d3869b"  # bright magenta — purple
-				"8ec07c"  # bright cyan — aqua
-				"ebdbb2"  # bright white — fg1 (foreground)
-			];
+					"cc241d"  # red
+					"98971a"  # green
+					"d79921"  # yellow
+					"458588"  # blue
+					"b16286"  # magenta — purple
+					"689d6a"  # cyan — aqua
+					"a89984"  # white — fg4 (gray)
+					"928374"  # bright black — gray
+					"fb4934"  # bright red
+					"b8bb26"  # bright green
+					"fabd2f"  # bright yellow
+					"83a598"  # bright blue
+					"d3869b"  # bright magenta — purple
+					"8ec07c"  # bright cyan — aqua
+					"ebdbb2"  # bright white — fg1 (foreground)
+					];
 
 			packages = [
 				pkgs.terminus_font
 			];
 
 			# font = "${pkgs.terminus_font}/share/consolefonts/ter-u20b.psf.gz";
-      font = "ter-u20b";
+			font = "ter-u20b";
 			earlySetup = true;
 		};
 
-		# Use latest kernel.
-		boot.kernelPackages = pkgs.linuxPackages_latest;
+#=====================================================================================================
+# Kernel
+#=====================================================================================================
+		
+		boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
 
-		networking.hostName = "p53"; # Define your hostname.
-		networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+#=====================================================================================================
+# Connetions
+#=====================================================================================================
 
-		# Enable networking
-		networking.networkmanager.enable = true;
+		networking = {
+			hostName = "p53"; # Define your hostname.
+			wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+			networkmanager.enable = true; # Enable networking
+		};
+
+#=====================================================================================================
+# Locale, Language, and Timezone
+#=====================================================================================================
 
 		# Set your time zone.
 		time.timeZone = "America/Chicago";
@@ -113,45 +168,25 @@
 		i18n.defaultLocale = "en_US.UTF-8";
 
 		i18n.extraLocaleSettings = {
-		  LC_ADDRESS = "en_GB.UTF-8";
-		  LC_IDENTIFICATION = "en_GB.UTF-8";
-		  LC_MEASUREMENT = "en_GB.UTF-8";
-		  LC_MONETARY = "en_GB.UTF-8";
-		  LC_NAME = "en_GB.UTF-8";
-		  LC_NUMERIC = "en_GB.UTF-8";
-		  LC_PAPER = "en_GB.UTF-8";
-		  LC_TELEPHONE = "en_GB.UTF-8";
-		  LC_TIME = "en_GB.UTF-8";
+			LC_ADDRESS = "en_GB.UTF-8";
+			LC_IDENTIFICATION = "en_GB.UTF-8";
+			LC_MEASUREMENT = "en_GB.UTF-8";
+			LC_MONETARY = "en_GB.UTF-8";
+			LC_NAME = "en_GB.UTF-8";
+			LC_NUMERIC = "en_GB.UTF-8";
+			LC_PAPER = "en_GB.UTF-8";
+			LC_TELEPHONE = "en_GB.UTF-8";
+			LC_TIME = "en_GB.UTF-8";
 		};
 
-		# Configure keymap in X11
-		# services.xserver.xkb = {
-		#   layout = "us";
-		#   variant = "";
-		# };
+#======================================================================================================
+# Misc
+#======================================================================================================
 
-		# Define a user account. Don't forget to set a password with ‘passwd’.
-		users.users."gray" = {
-		  isNormalUser = true;
-		  description = "Gray";
-		  extraGroups = [ "networkmanager" "wheel" ];
-		  packages = with pkgs; [];
-		};
-
-		# Allow unfree packages
-		nixpkgs.config.allowUnfree = true;
-
-		# List packages installed in system profile. To search, run:
-		# $ nix search wget
-		environment.systemPackages = with pkgs; [
-		  # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-		  wget
-		  git
-		  brave
-		];
-		
 		nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 		system.stateVersion = "26.05"; # Did you read the comment?
+
 	};
+
 }
