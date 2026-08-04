@@ -40,8 +40,8 @@
 			# 		"Mod+Q".close-window = _:{};
 			# 		#"Mod+Q".close-window = null;
 			# 		"Mod+Space".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle"; 
-				};
-			};
+			# 	};
+			# };
 		};
 	};
 }
