@@ -348,10 +348,10 @@ window-rule {
 
 binds {
 
-	Mod+ {}
-	Mod+Ctrl+ {}
-	Mod+Ctrl+Shift+ {}
-	Mod+Shift+ {}
+	// Mod+ {}
+	// Mod+Ctrl+ {}
+	// Mod+Ctrl+Shift+ {}
+	// Mod+Shift+ {}
 
 	//================================================================================
 	// General
@@ -675,3 +675,5 @@ binds {
 
 
 }
+
+spawn-at-startup "noctalia"

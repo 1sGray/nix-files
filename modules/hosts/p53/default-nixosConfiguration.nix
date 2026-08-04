@@ -20,6 +20,8 @@
 			self.nixosModules.fastfetch
 			self.nixosModules.zsh
 			self.nixosModules.starship
+			self.nixosModules.noctalia
+			self.nixosModules.kitty
 		];
 
 #=====================================================================================================
@@ -66,6 +68,25 @@
 			useOSProber = true;
 
 		};
+
+#=====================================================================================================
+# Connetions
+#=====================================================================================================
+
+		networking = {
+			hostName = "p53"; # Define your hostname.
+			wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+			networkmanager.enable = true; # Enable networking
+		};
+
+		hardware.bluetooth.enable = true;
+
+#=====================================================================================================
+# Power
+#=====================================================================================================
+
+		services.power-profiles-daemon.enable = true;
+		services.upower.enable = true;
 
 #=====================================================================================================
 # Fonts
@@ -149,16 +170,6 @@
 #=====================================================================================================
 		
 		boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
-
-#=====================================================================================================
-# Connetions
-#=====================================================================================================
-
-		networking = {
-			hostName = "p53"; # Define your hostname.
-			wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-			networkmanager.enable = true; # Enable networking
-		};
 
 #=====================================================================================================
 # Locale, Language, and Timezone

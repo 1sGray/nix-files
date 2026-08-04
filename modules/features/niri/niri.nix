@@ -10,7 +10,7 @@
 	perSystem = { pkgs, lib, self', ... }: {
 		packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
 			inherit pkgs;
-			config."config.kdl".path = ./configs/.config/niri/config.kdl;
+			"config.kdl".path = ./configs/.config/niri/config.kdl;
 			# settings = {
 			# 	spawn-at-startup = [
 			# 		(lib.getExe self'.packages.myNoctalia)
