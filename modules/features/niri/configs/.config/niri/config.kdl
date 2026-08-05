@@ -268,7 +268,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -329,7 +329,7 @@ window-rule {
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
@@ -339,13 +339,38 @@ window-rule {
     // block-out-from "screencast"
 }
 
+//================================================================================
+// Noctalia Recommmendations
+//================================================================================
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
+window-rule {
+    geometry-corner-radius 20 // Rounded corners of a modern look.
+    clip-to-geometry true // Clips window contents to the rounded corner boundaries.
 }
 
+
+window-rule { // Floating Noctalia settings window.
+	match app-id="dev.noctalia.Noctalia"
+	open-floating true
+	default-column-width { fixed 1080; }
+	default-window-height { fixed 920; }
+}
+
+debug {
+	honor-xdg-activatoin-with-invalid-serial // Allows notification actions and window activication from Noctalia.
+}
+
+// This allows Niri's overview to use Noctalia's backdrop (default blurred)
+layer-rule { 
+	match namespace="^noctalia-backdrop"
+	place-within-backdrop true
+}
+
+
+//================================================================================
+// KeyBinds
+//================================================================================
 binds {
 
 	// Mod+ {}
@@ -373,6 +398,29 @@ binds {
 	// You can also move the mouse into the top-left hot corner,
 	// or do a four-finger swipe up on a touchpad.
 	Mod+O repeat=false { toggle-overview; }
+
+	//================================================================================
+	// Noctalia
+	//================================================================================
+
+	spawn-at-startup "noctalia-shell" // Autostart Noctalia
+
+	Mod+Space hotkey-overlay-title="Toggle Noctalia Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+	MOd+S hotkey-overlay-title="Toggle Noctalia Control Center" {spawn-sh "noctalia msg panel-toggle control-center"; }
+	MOd+Comma hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "noctalia msg settings-toggle"; }
+	Alt+Tab hotkey-overlay-title="Open Noctalia's Window Switcher" {spawn-sh "noctalia msg window-switcher"; }
+
+	// Audio 
+
+	XF86AudioRaiseVolume  { spawn-sh "noctalia msg volume-up"; }
+	XF86AudioLowerVolume  { spawn-sh "noctalia msg volume-down"; }
+	XF86AudioMute         { spawn-sh "noctalia msg volume-mute"; }
+	// XF86AudioMicMute      { spawn-sh "noctalia msg"; }
+
+	// Brightness
+
+	XF86MonBrightnessUp  { spawn "noctalia msg brightne-up"; }
+	XF86MonBrightnessDown  { spawn "noctalia msg brightness-down"; }
 
 	//================================================================================
 	// Windows
@@ -574,8 +622,8 @@ binds {
 	// Example brightness key mappings for brightnessctl.
 	// You can use regular spawn with multiple arguments too (to avoid going through "sh"),
 	// but you need to manually put each argument in separate "" quotes.
-	XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-	XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+	// XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+	// XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
 	//================================================================================
 	// Audio
@@ -585,13 +633,15 @@ binds {
 	// The allow-when-locked=true property makes them work even when the session is locked.
 	// Using spawn-sh allows to pass multiple arguments together with the command.
 	// "-l 1.0" limits the volume to 100%.
-	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-	XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-	XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-	XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+	// XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+	// XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+	// XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+	// XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
 	// Example media keys mapping using playerctl.
 	// This will work with any MPRIS-enabled media player.
+
 	XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
 	XF86AudioPause       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
 	XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
@@ -676,4 +726,3 @@ binds {
 
 }
 
-spawn-at-startup "noctalia-shell"
