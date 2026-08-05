@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 	
-	flake.nixModules.kitty = { pkgs, lib, ... }: {
+	flake.nixosModules.kitty = { pkgs, lib, ... }: {
 		environment.systemPackages = [
 			self.packages.${pkgs.stdenv.hostPlatform.system}.myKitty
 		];

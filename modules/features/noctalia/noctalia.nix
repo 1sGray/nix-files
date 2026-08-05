@@ -6,7 +6,9 @@
 			self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia
 		];
 
-		# programs.myNoctalia.enable = true;
+		# programs.myNoctalia = {
+		# 	enable = true;
+		# };
 	};
 
 	perSystem = { pkgs, ... }: {
