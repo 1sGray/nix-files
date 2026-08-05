@@ -358,7 +358,7 @@ window-rule { // Floating Noctalia settings window.
 }
 
 debug {
-	honor-xdg-activatoin-with-invalid-serial // Allows notification actions and window activication from Noctalia.
+	honor-xdg-activation-with-invalid-serial // Allows notification actions and window activication from Noctalia.
 }
 
 // This allows Niri's overview to use Noctalia's backdrop (default blurred)
@@ -367,6 +367,7 @@ layer-rule {
 	place-within-backdrop true
 }
 
+spawn-at-startup "noctalia-shell" // Autostart Noctalia
 
 //================================================================================
 // KeyBinds
@@ -403,11 +404,10 @@ binds {
 	// Noctalia
 	//================================================================================
 
-	spawn-at-startup "noctalia-shell" // Autostart Noctalia
 
 	Mod+Space hotkey-overlay-title="Toggle Noctalia Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
-	MOd+S hotkey-overlay-title="Toggle Noctalia Control Center" {spawn-sh "noctalia msg panel-toggle control-center"; }
-	MOd+Comma hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "noctalia msg settings-toggle"; }
+	Mod+S hotkey-overlay-title="Toggle Noctalia Control Center" {spawn-sh "noctalia msg panel-toggle control-center"; }
+	// Mod+Comma hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "noctalia msg settings-toggle"; }
 	Alt+Tab hotkey-overlay-title="Open Noctalia's Window Switcher" {spawn-sh "noctalia msg window-switcher"; }
 
 	// Audio 

@@ -1,4 +1,4 @@
-local this_dir"${0:A:h}"
+local this_dir="${0:A:h}"
 local plugin_dir="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
 
 mkdir -p "$plugin_dir"

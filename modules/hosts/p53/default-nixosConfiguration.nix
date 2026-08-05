@@ -169,7 +169,13 @@
 # Kernel
 #=====================================================================================================
 		
-		boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
+		# boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
+
+		# Using The CachyOS Linux Kernel
+		nixpkgs.overlays = [
+			inputs.nix-cachyos-kernel.overlays.default
+		];
+		boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore; # Use latest kernel with BORE scheduler.
 
 #=====================================================================================================
 # Locale, Language, and Timezone
