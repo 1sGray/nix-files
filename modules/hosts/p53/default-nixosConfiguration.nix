@@ -8,11 +8,10 @@
 		];
 	};
 
-	flake.nixosModules.machineConfiguration = { pkgs, lib, ... }: {
+	flake.nixosModules.machineConfiguration = { pkgs, lib, config, ... }: {
 
 		imports = [
 			self.nixosModules.machineHardware
-			self.nixosModules.p53Graphics
 			self.nixosModules.niri
 			self.nixosModules.neovim
 			# self.nixosModules.myGrub
@@ -80,6 +79,54 @@
 		};
 
 		hardware.bluetooth.enable = true;
+
+#=====================================================================================================
+# Kernel
+#=====================================================================================================
+		
+		# boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
+
+		# Using The CachyOS Linux Kernel
+		nixpkgs.overlays = [
+			inputs.nix-cachyos-kernel.overlays.default
+		];
+		boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore; # Use latest kernel with BORE scheduler.
+
+#=====================================================================================================
+# Grapics
+#=====================================================================================================
+		boot.initrd.kernelModules = [ 
+			"i915" # early KMS font fix
+			"nvidia"
+			"nvidia_modeset"
+			"nvidia_drm"
+			"ntsync"
+		];
+
+			#Xorg drivers (needed even w/o xorg & on Wayland): "modesetting" handles the Intel iGPU, "nvidia" is required of dGPU
+			services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+
+			hardware.graphics.enable = true; # OpenGL/Vulkan userspace support
+
+			hardware.nvidia = {
+
+				open = false; 
+				package = config.boot.kernelPackages.nvidiaPackages.stable; # properietary kernel module - most mature/well tested path for Turing class cards like T1000
+				nvidiaSettings = true;
+
+
+				prime = {
+					offload = {
+						enable = true; 
+						enableOffloadCmd = true; # gives you a `nvidia-offload` wrapper command
+					};
+
+					intelBusId = "PCI:0:2:0";
+					nvidiaBusId = "PCI:1:0:0";
+				};
+
+			};
+
 
 #=====================================================================================================
 # Power
@@ -164,18 +211,6 @@
 			font = "ter-u20b";
 			earlySetup = true;
 		};
-
-#=====================================================================================================
-# Kernel
-#=====================================================================================================
-		
-		# boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
-
-		# Using The CachyOS Linux Kernel
-		nixpkgs.overlays = [
-			inputs.nix-cachyos-kernel.overlays.default
-		];
-		boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore; # Use latest kernel with BORE scheduler.
 
 #=====================================================================================================
 # Locale, Language, and Timezone
