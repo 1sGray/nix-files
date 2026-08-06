@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 	
-	flake.nixModules.template = { pkgs, lib, ... }: {};
+	flake.nixosModules.template = { pkgs, lib, ... }: {};
 
 	perSystem = { pkg , lib, ... }: {};
 }

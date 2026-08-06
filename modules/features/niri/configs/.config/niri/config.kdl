@@ -378,6 +378,7 @@ binds {
 	// Mod+Ctrl+ {}
 	// Mod+Ctrl+Shift+ {}
 	// Mod+Shift+ {}
+	// hotkey-overlay-title=""
 
 	//================================================================================
 	// General
@@ -410,14 +411,14 @@ binds {
 	// Mod+Comma hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "noctalia msg settings-toggle"; }
 	Alt+Tab hotkey-overlay-title="Open Noctalia's Window Switcher" {spawn-sh "noctalia msg window-switcher"; }
 
-	// Audio 
+	// Audio =========================================================================
 
 	XF86AudioRaiseVolume  { spawn-sh "noctalia msg volume-up"; }
 	XF86AudioLowerVolume  { spawn-sh "noctalia msg volume-down"; }
 	XF86AudioMute         { spawn-sh "noctalia msg volume-mute"; }
 	// XF86AudioMicMute      { spawn-sh "noctalia msg"; }
 
-	// Brightness
+	// Brightness ====================================================================
 
 	XF86MonBrightnessUp  { spawn "noctalia msg brightne-up"; }
 	XF86MonBrightnessDown  { spawn "noctalia msg brightness-down"; }
@@ -428,28 +429,28 @@ binds {
 	
 	Mod+Q repeat=false { close-window; } // Closed focused window
 
-	// Change window focus
-	Mod+Left  { focus-column-left; }
-	Mod+Down  { focus-window-down; }
-	Mod+Up    { focus-window-up; }
-	Mod+Right { focus-column-right; }
-	Mod+H     { focus-column-left; }
-	Mod+J     { focus-window-down; }
-	Mod+K     { focus-window-up; }
-	Mod+L     { focus-column-right; }
+	// Change window focus ===========================================================
+	Mod+Left  hotkey-overlay-title="Change Focus Left"   { focus-column-left;  }
+	Mod+Down  hotkey-overlay-title="Change Focus Down"   { focus-window-down;  }
+	Mod+Up    hotkey-overlay-title="Change Focus Up"     { focus-window-up;    }
+	Mod+Right hotkey-overlay-title="Change Focus Right"  { focus-column-right; }
+	Mod+H     hotkey-overlay-title="Change Focus Left"   { focus-column-left;  }
+	Mod+J     hotkey-overlay-title="Change Focus Down"   { focus-window-down;  }
+	Mod+K     hotkey-overlay-title="Change Focus Up"     { focus-window-up;    }
+	Mod+L     hotkey-overlay-title="Change Focus Right"  { focus-column-right; }
 
-	Mod+Home { focus-column-first; }
-	Mod+End  { focus-column-last; }
+	Mod+Home  hotkey-overlay-title="Change Focus First"  { focus-column-first; }
+	Mod+End   hotkey-overlay-title="Change Focus Last"   { focus-column-last;  }
 
-	// Move focused window
-	Mod+Ctrl+Left  { move-column-left; }
-	Mod+Ctrl+Down  { move-window-down; }
-	Mod+Ctrl+Up    { move-window-up; }
-	Mod+Ctrl+Right { move-column-right; }
-	Mod+Ctrl+H     { move-column-left; }
-	Mod+Ctrl+J     { move-window-down; }
-	Mod+Ctrl+K     { move-window-up; }
-	Mod+Ctrl+L     { move-column-right; }
+	// Move focused window ===========================================================
+	Mod+Ctrl+Left  hotkey-overlay-title="Move Focus Left"{ move-column-left; }
+	Mod+Ctrl+Down  hotkey-overlay-title="Move Focus Down"{ move-window-down; }
+	Mod+Ctrl+Up    hotkey-overlay-title="Move Focus Up"{ move-window-up; }
+	Mod+Ctrl+Right hotkey-overlay-title="Move Focus Right"{ move-column-right; }
+	Mod+Ctrl+H     hotkey-overlay-title="Move Focus Left"{ move-column-left; }
+	Mod+Ctrl+J     hotkey-overlay-title="Move Focus Down"{ move-window-down; }
+	Mod+Ctrl+K     hotkey-overlay-title="Move Focus Up"{ move-window-up; }
+	Mod+Ctrl+L     hotkey-overlay-title="Move Focus Right"{ move-column-right; }
 
 	Mod+Ctrl+Home { move-column-to-first; }
 	Mod+Ctrl+End  { move-column-to-last; }
@@ -461,13 +462,13 @@ binds {
 	// Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
 	// Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
-	// Move window to workspace
+	// Move window to workspace ======================================================
 	Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
 	Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
 	Mod+Ctrl+U         { move-column-to-workspace-down; }
 	Mod+Ctrl+I         { move-column-to-workspace-up; }
 
-	// Move window to monitor
+	// Move window to monitor ========================================================
 	Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
 	Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
 	Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
@@ -530,10 +531,10 @@ binds {
 	// Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
 	// set-column-width "100" will make the column occupy 200 physical screen pixels.
 	Mod+Minus { set-column-width "-10%"; }
-	Mod+Equal { set-column-width "+10%"; }
+	Mod+Shift+Minus { set-window-width "-10%"; }
 
 	// Finer height adjustments when in column with other windows.
-	Mod+Shift+Minus { set-window-height "-10%"; }
+	Mod+Equal { set-column-height "+10%"; }
 	Mod+Shift+Equal { set-window-height "+10%"; }
 
 	// Move the focused window between the floating and the tiling layout.
@@ -658,22 +659,22 @@ binds {
 	// To avoid scrolling through workspaces really fast, you can use
 	// the cooldown-ms property. The bind will be rate-limited to this value.
 	// You can set a cooldown on any bind, but it's most useful for the wheel.
-	Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-	Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-	Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-	Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+	// Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+	// Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+	// Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+	// Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-	Mod+WheelScrollRight      { focus-column-right; }
-	Mod+WheelScrollLeft       { focus-column-left; }
-	Mod+Ctrl+WheelScrollRight { move-column-right; }
-	Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+	// Mod+WheelScrollRight      { focus-column-right; }
+	// Mod+WheelScrollLeft       { focus-column-left; }
+	// Mod+Ctrl+WheelScrollRight { move-column-right; }
+	// Mod+Ctrl+WheelScrollLeft  { move-column-left; }
 
 	// Usually scrolling up and down with Shift in applications results in
 	// horizontal scrolling; these binds replicate that.
-	Mod+Shift+WheelScrollDown      { focus-column-right; }
-	Mod+Shift+WheelScrollUp        { focus-column-left; }
-	Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-	Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+	// Mod+Shift+WheelScrollDown      { focus-column-right; }
+	// Mod+Shift+WheelScrollUp        { focus-column-left; }
+	// Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+	// Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 	
 	// Similarly, you can bind touchpad scroll "ticks".
 	// Touchpad scrolling is continuous, so for these binds it is split into
