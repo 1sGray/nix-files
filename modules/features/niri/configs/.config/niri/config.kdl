@@ -408,8 +408,14 @@ binds {
 
 	Mod+Space hotkey-overlay-title="Toggle Noctalia Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
 	Mod+S hotkey-overlay-title="Toggle Noctalia Control Center" {spawn-sh "noctalia msg panel-toggle control-center"; }
-	// Mod+Comma hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "noctalia msg settings-toggle"; }
+	Mod+Comma hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "noctalia msg settings-toggle"; }
 	Alt+Tab hotkey-overlay-title="Open Noctalia's Window Switcher" {spawn-sh "noctalia msg window-switcher"; }
+
+    // Mod+Space hotkey-overlay-title="Toggle Noctalia Launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+	// Mod+S hotkey-overlay-title="Toggle Noctalia Control Center" {spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+	// Mod+Comma hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+	// Alt+Tab hotkey-overlay-title="Open Noctalia's Window Switcher" {spawn-sh "qs -c noctalia-shell ipc call windowSwitcher toggle"; }
+
 
 	// Audio =========================================================================
 
