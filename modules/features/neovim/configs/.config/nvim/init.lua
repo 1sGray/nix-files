@@ -7,11 +7,6 @@
 -- Globals
 -- =======================================================================================
 
-vim.g.mapleader = " " -- Set leader globally, Prefered:<Space>
-
-vim.g.maplocalleader = " "-- Set leader locally, Prefered:<Space>
-
-vim.g.have_nerd_font = true -- Set Nerdfonts if installed and enabled in term
 
 -- =======================================================================================
 -- Plugins
@@ -46,13 +41,32 @@ vim.pack.add({ -- Plugin Repos
 -- LSPs
 -- =======================================================================================
 
--- vim.lsp.enable({
---   "lua_ls",
---   "rust_analyzer",
--- })
--- lua_ls
+vim.lsp.enable({
+  "lua_ls",
+  "rust_analyzer",
+  "nixd",
+})
+
+-- Diagnostics ===========================================================================
+
+vim.diagnostic.config({ virtual_text = true })
+
+-- Completions ===========================================================================
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function (ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client ~= nil and client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+        end
+    end,
+})
+
+vim.cmd("set completeopt+=noselect") -- Stops inputting the first selected option automatically
+
+-- lua_ls ================================================================================
 --require "lspconfig".lua_ls.setup {}
--- rust-analyzer
+-- rust-analyzer =========================================================================
 --require "lspconfig".rust_analyzer.setup({
 --  capabilities = capabilities,
 --  on_attach = on_attach,
@@ -60,10 +74,15 @@ vim.pack.add({ -- Plugin Repos
 --    "rustup", "run", "stable", "rust-analyzer",
 --  }
 --})
+-- 
 
 -- =======================================================================================
 -- Options
 -- =======================================================================================
+
+
+-- Fonts ================================================================================
+vim.g.have_nerd_font = true -- Set Nerdfonts if installed and enabled in term
 
 -- Themes ================================================================================
 
@@ -81,8 +100,9 @@ vim.opt.smartcase = true      -- override 'ignorecase' when pattern has upper ca
 vim.opt.scrolloff = 10        -- minimal number of screen lines to keep above and below the cursor, changes scorll offseet to `10`, which gives padding to view previous and upcoming code lines from the cursor position
 vim.opt.sidescrolloff = 15    -- minimal number of columns to keep left and right of the cursor
 vim.opt.wrap = false          -- Disable line wrapping
-vim.opt.cmdheight = 3         -- number of lines used for the command-line
+vim.opt.cmdheight = 2         -- number of lines used for the command-line
 vim.opt.winborder = "rounded"
+vim.opt.signcolumn = "yes"
 
 -- Line Number ===========================================================================
 
@@ -106,12 +126,15 @@ vim.opt.mouse = "a"           -- list of flags for using the mouse
 -- Text Editing ==========================================================================
 
 vim.opt.undofile = true       -- automatically save and restore undo history
+vim.opt.autoread = true       -- automatically show live updates to file after outside changes
 
 -- Tabs and Indenting ====================================================================
 
 vim.opt.tabstop = 4           -- number of spaces a <Tab> in the text stands for
 vim.opt.shiftwidth = 4        -- number of spaces used for each step of (auto)indent
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true      -- expand <Tab> to spaces in Insert modes
+vim.opt.smartindent = true    -- do clever indenting
 
 -- Folding ===============================================================================
 --
@@ -121,14 +144,13 @@ vim.opt.foldmethod = "marker"
 -- Keymaps
 -- =======================================================================================
 
+vim.g.mapleader = " " -- Set leader globally, Prefered:<Space>
+vim.g.maplocalleader = " "-- Set leader locally, Prefered:<Space>
+
 vim.keymap.set("n", "<leader>to", function() vim.opt.scrolloff = 999 - vim.o.scrolloff end,
-  {
-    desc =
-    "A toggle that sets scroll offset super high which keeps your cursor at the middle of the screen and scrolls the content around it"
-  })
-vim.keymap.set("n", "<leader>cu", ":update<CR> :source<CR>",
-  { desc = "Updates current file and sources it, mainly nvim config files." })
+  { desc = "A toggle that sets scroll offset super high which keeps your cursor at the middle of the screen and scrolls the content around it" })
+vim.keymap.set("n", "<leader>cu", ":update<CR> :source<CR>", { desc = "Updates current file and sources it, mainly nvim config files." })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Writes buffer to file." })
-vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Formats a buffer using the attached LSP" })
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "exits to normal mode in the terminal" })
 
