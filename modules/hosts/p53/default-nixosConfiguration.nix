@@ -51,6 +51,9 @@
 			brave
 			xwayland-satellite
 			ripgrep
+# LSPs ===============================================================================================
+      lua-language-server
+      rust-analyzer
 		];
 
 		
