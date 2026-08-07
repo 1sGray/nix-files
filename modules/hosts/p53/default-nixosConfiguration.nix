@@ -49,6 +49,7 @@
 			wget
 			git
 			brave
+			xwayland-satellite
 		];
 
 		
@@ -132,7 +133,7 @@
 # Wayland
 #=====================================================================================================
 
-		environment.systemPackages = pkgs.xwayland-satellite;
+		# environment.systemPackages = pkgs.;
 
 		programs.xwayland.enable = true;
 
