@@ -21,6 +21,9 @@
 			self.nixosModules.starship
 			self.nixosModules.noctalia
 			self.nixosModules.kitty
+            self.nixosModules.zram
+            self.nixosModules.ananicy
+            self.nixosModules.scx
 		];
 
 #=====================================================================================================
