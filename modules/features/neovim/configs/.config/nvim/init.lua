@@ -1,4 +1,4 @@
--- require("config.options")
+require("config.options")
 -- require("config.keymaps")
 -- require("config.autocommands")
 -- require("config.personal-plugins.floaterminal")
@@ -12,7 +12,7 @@ vim.g.have_nerd_font = true
 
 -- ### Plugins ### --
 vim.pack.add({ -- Plugin Repos
-  -- { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   -- { src = "https://github.com/Saghen/blink.cmp"},
   -- { src = ""},
   -- { src = "https://github.com/neovim/nvim-lspconfig" },
@@ -20,13 +20,13 @@ vim.pack.add({ -- Plugin Repos
   -- QOL Plugins
 })
 
---  Treesitter
--- require("nvim-treesitter.configs").setup({
---   enshure_installed = {
---     "lua",
---     "rust",
---   },
--- })
+ Treesitter
+require("nvim-treesitter.configs").setup({
+  enshure_installed = {
+    "lua",
+    "rust",
+  },
+})
 
 -- Blink.cmp
 -- require("blink.cmp").setup({
