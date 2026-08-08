@@ -18,6 +18,8 @@ vim.pack.add({ -- Plugin Repos
   -- { src = ""},
   -- { src = "https://github.com/neovim/nvim-lspconfig" },
   -- { src = "https://github.com/ellisonleao/gruvbox.nvim" },
+  { src = "tris203/precognition.nvim" },
+  -- { src = "https://github.com/nvim-mini/mini.nvim" }
   -- QOL Plugins
 })
 
@@ -36,6 +38,15 @@ vim.pack.add({ -- Plugin Repos
 --   signature = { enabled = true },
 --   fuzzy = { implementation = "lua" },
 -- })
+
+-- precognition =============================================================================
+
+-- require("precongintion").setup({})
+
+
+-- mini.nvim =============================================================================
+
+-- require("mini.indentscope").setup()
 
 -- =======================================================================================
 -- LSPs

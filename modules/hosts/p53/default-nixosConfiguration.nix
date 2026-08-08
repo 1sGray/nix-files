@@ -24,6 +24,8 @@
             self.nixosModules.zram
             self.nixosModules.ananicy
             self.nixosModules.scx
+            # self.nixosModules.yazi
+            self.nixosModules.keepassxc
 		];
 
 #=====================================================================================================
@@ -97,9 +99,10 @@
 
 		# Using The CachyOS Linux Kernel
 		nixpkgs.overlays = [
-			inputs.nix-cachyos-kernel.overlays.default
+			inputs.nix-cachyos-kernel.overlays.pinned
 		];
-		boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore; # Use latest kernel with BORE scheduler.
+		# boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore; # Use latest kernel with BORE scheduler.
+		boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3; # Use latest kernel with BORE scheduler, v3 Processor optimization level for Coffee-Lake CPU, and Link-Time optimization.
 
 #=====================================================================================================
 # Grapics
@@ -152,6 +155,16 @@
 
 		services.power-profiles-daemon.enable = true;
 		services.upower.enable = true;
+
+#=====================================================================================================
+# Disks
+#=====================================================================================================
+
+boot.supportedFilesystems = [
+    "exfat"
+    "ntfs"
+    "btrfs"
+];
 
 #=====================================================================================================
 # Fonts
