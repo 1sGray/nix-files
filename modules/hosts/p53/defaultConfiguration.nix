@@ -3,21 +3,21 @@
     flake.nixosModules.defaultConfiguration = { pkgs, lib, config, ... }: {
         imports = [
             self.nixosModules.machineHardware
-                self.nixosModules.niri
+                # self.nixosModules.niri
                 self.nixosModules.neovim
                 # self.nixosModules.myGrub
                 self.nixosModules.zellij
                 self.nixosModules.fastfetch
                 self.nixosModules.zsh
                 self.nixosModules.starship
-                self.nixosModules.noctalia
-                self.nixosModules.kitty
+                # self.nixosModules.noctalia
+                # self.nixosModules.kitty
                 self.nixosModules.zram
                 self.nixosModules.ananicy
                 self.nixosModules.scx
                 self.nixosModules.yazi
-                self.nixosModules.syncthing
-                self.nixosModules.keepassxc
+                # self.nixosModules.syncthing
+                # self.nixosModules.keepassxc
         ];
 
 #=====================================================================================================

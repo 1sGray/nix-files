@@ -7,6 +7,7 @@
 
 			# self.nixosModules.machineConfiguration
 			self.nixosModules.defaultConfiguration
+			# self.nixosModules.niriConfiguration
 
 		];
 	};
