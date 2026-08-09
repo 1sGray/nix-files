@@ -4,7 +4,10 @@
 		
 		specialArgs = { inherit self inputs; };
 		modules = [
-			self.nixosModules.machineConfiguration
+
+			# self.nixosModules.machineConfiguration
+			self.nixosModules.defaultConfiguration
+
 		];
 	};
 
@@ -24,8 +27,7 @@
             self.nixosModules.zram
             self.nixosModules.ananicy
             self.nixosModules.scx
-            self.nixosModules.yazi
-            self.nixosModules.syncthing
+            # self.nixosModules.yazi
             self.nixosModules.keepassxc
 		];
 
@@ -57,13 +59,10 @@
 			brave
 			xwayland-satellite
 			ripgrep
-            keepassxc
-            udiskie # udisks2 frontend
-
-            # LSPs ===================================================================================
-            lua-language-server
-            rust-analyzer
-            nixd
+# LSPs ===============================================================================================
+      lua-language-server
+      rust-analyzer
+      nixd
 		];
 
 		
@@ -80,7 +79,6 @@
 			efiSupport = true;
 			device = "nodev";
 			useOSProber = true;
-            configurationLimit = 2; # This limits grub to only two kernel+initrd file generation, CachyOS kernels are CHONKY
 
 		};
 
@@ -100,14 +98,14 @@
 # Kernel
 #=====================================================================================================
 		
-		boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
+		# boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
 
 		# Using The CachyOS Linux Kernel
 		nixpkgs.overlays = [
 			inputs.nix-cachyos-kernel.overlays.pinned
 		];
 		# boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore; # Use latest kernel with BORE scheduler.
-		# boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3; # Use latest kernel with BORE scheduler, v3 Processor optimization level for Coffee-Lake CPU, and Link-Time optimization.
+		boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3; # Use latest kernel with BORE scheduler, v3 Processor optimization level for Coffee-Lake CPU, and Link-Time optimization.
 
         nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
         nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
@@ -117,13 +115,10 @@
 #=====================================================================================================
 		boot.initrd.kernelModules = [ 
 			"i915" # early KMS font fix
-
-            # The following loads nvidia modules, if dGPU is used only when neccissary then keep commented
-            #
-			# "nvidia"
-			# "nvidia_modeset"
-			# "nvidia_drm"
-			# "ntsync"
+			"nvidia"
+			"nvidia_modeset"
+			"nvidia_drm"
+			"ntsync"
 		];
 
 			#Xorg drivers (needed even w/o xorg & on Wayland): "modesetting" handles the Intel iGPU, "nvidia" is required of dGPU
@@ -168,7 +163,7 @@
 		services.upower.enable = true;
 
 #=====================================================================================================
-# Disks & Storage
+# Disks
 #=====================================================================================================
 
 boot.supportedFilesystems = [
@@ -176,10 +171,6 @@ boot.supportedFilesystems = [
     "ntfs"
     "btrfs"
 ];
-
-services.udisks2.enable = true;
-services.gvfs.enable = true;
-services.devmon.enable = true;
 
 #=====================================================================================================
 # Fonts

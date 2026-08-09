@@ -13,6 +13,11 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+        url = "github:nix-community/disko";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
     noctalia = {
     	url = "github:noctalia-dev/noctalia";
