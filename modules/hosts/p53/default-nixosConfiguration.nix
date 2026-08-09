@@ -25,7 +25,7 @@
             self.nixosModules.ananicy
             self.nixosModules.scx
             # self.nixosModules.yazi
-            self.nixosModules.keepassxc
+            self.nixosModules.syncthing
 		];
 
 #=====================================================================================================
@@ -56,10 +56,12 @@
 			brave
 			xwayland-satellite
 			ripgrep
-# LSPs ===============================================================================================
-      lua-language-server
-      rust-analyzer
-      nixd
+            keepassxc
+
+            # LSPs ===================================================================================
+            lua-language-server
+            rust-analyzer
+            nixd
 		];
 
 		
@@ -76,6 +78,7 @@
 			efiSupport = true;
 			device = "nodev";
 			useOSProber = true;
+            configurationLimit = 2; # This limits grub to only two kernel+initrd file generation, CachyOS kernels are CHONKY
 
 		};
 
@@ -112,10 +115,13 @@
 #=====================================================================================================
 		boot.initrd.kernelModules = [ 
 			"i915" # early KMS font fix
-			"nvidia"
-			"nvidia_modeset"
-			"nvidia_drm"
-			"ntsync"
+
+            # The following loads nvidia modules, if dGPU is used only when neccissary then keep commented
+            #
+			# "nvidia"
+			# "nvidia_modeset"
+			# "nvidia_drm"
+			# "ntsync"
 		];
 
 			#Xorg drivers (needed even w/o xorg & on Wayland): "modesetting" handles the Intel iGPU, "nvidia" is required of dGPU
