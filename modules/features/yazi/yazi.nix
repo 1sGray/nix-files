@@ -17,9 +17,9 @@
 	perSystem = { pkgs, self, lib, ... }: {
 		packages.myYazi = inputs.wrapper-modules.wrappers.yazi.wrap {
 			inherit pkgs;
-            constructFiles.generatedConfig.content = lib.mkForce (
-                builtins.readfile ./configs/.config/yazi/config.toml
-            );
+            # constructFiles.generatedConfig.content = lib.mkForce (
+            #     builtins.readfile ./configs/.config/yazi/config.toml
+            # );
 		};
 	};
 }

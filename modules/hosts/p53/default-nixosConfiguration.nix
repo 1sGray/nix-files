@@ -24,8 +24,9 @@
             self.nixosModules.zram
             self.nixosModules.ananicy
             self.nixosModules.scx
-            # self.nixosModules.yazi
+            self.nixosModules.yazi
             self.nixosModules.syncthing
+            self.nixosModules.keepassxc
 		];
 
 #=====================================================================================================
@@ -57,6 +58,7 @@
 			xwayland-satellite
 			ripgrep
             keepassxc
+            udiskie # udisks2 frontend
 
             # LSPs ===================================================================================
             lua-language-server
@@ -166,7 +168,7 @@
 		services.upower.enable = true;
 
 #=====================================================================================================
-# Disks
+# Disks & Storage
 #=====================================================================================================
 
 boot.supportedFilesystems = [
@@ -174,6 +176,10 @@ boot.supportedFilesystems = [
     "ntfs"
     "btrfs"
 ];
+
+services.udisks2.enable = true;
+services.gvfs.enable = true;
+services.devmon.enable = true;
 
 #=====================================================================================================
 # Fonts
