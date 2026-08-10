@@ -8,7 +8,7 @@
 			# self.nixosModules.machineConfiguration
 			self.nixosModules.defaultConfiguration
 			# self.nixosModules.niriConfiguration
-            # inputs.disko.nixosModules.disko
+            inputs.disko.nixosModules.disko
             ./_disko.nix
 
 		];

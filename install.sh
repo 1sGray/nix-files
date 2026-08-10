@@ -17,7 +17,7 @@ set -euo pipefail
 # for a fresh installer ISO with nothing else on it. Use a local path
 # instead if you've already got the repo checked out (e.g. from a USB
 # stick), which is handy for testing changes before pushing.
-FLAKE_URI="github:<your-username>/nix-files"
+FLAKE_URI="github:1sGray/nix-files"
 # ---------------------------------------------------------------------------
 
 usage() {
