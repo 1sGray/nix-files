@@ -17,7 +17,7 @@ set -euo pipefail
 # for a fresh installer ISO with nothing else on it. Use a local path
 # instead if you've already got the repo checked out (e.g. from a USB
 # stick), which is handy for testing changes before pushing.
-FLAKE_URI="github:1sGray/nix-files"
+FLAKE_URI="github:<your-username>/nix-files"
 
 # The normal user to prompt a password for after install. Edit per host
 # if a future host uses a different username.
@@ -61,12 +61,32 @@ if [ "$CONFIRM" != "$DISK" ]; then
     exit 1
 fi
 
+echo
+echo "Partitioning and formatting $DISK..."
 nix \
     --extra-experimental-features "nix-command flakes" \
     run 'github:nix-community/disko/latest#disko-install' -- \
-    --write-efi-boot-entries \
+    --mode format \
     --flake "${FLAKE_URI}#${HOST}" \
     --disk main "$DISK"
+
+echo "Checking target is mounted..."
+mount | grep -q " /mnt " || { echo "error: /mnt isn't mounted, aborting" >&2; exit 1; }
+
+# The live ISO's root is a RAM-backed tmpfs overlay — /tmp and any newly
+# fetched/built store paths eat into that, not your actual disk. Now that
+# disko has mounted the real target filesystem at /mnt, redirect /tmp
+# there so installs with a decent amount of new packages don't run the
+# live session out of memory-backed space.
+echo "Redirecting /tmp to the target disk..."
+mkdir -p /mnt/tmp
+mount --bind /mnt/tmp /tmp
+
+echo "Installing..."
+nixos-install \
+    --root /mnt \
+    --flake "${FLAKE_URI}#${HOST}" \
+    --no-root-passwd
 
 # disko-install leaves the new system mounted at /mnt — use that to set
 # real passwords via the normal `passwd` tool before ever booting into it,
