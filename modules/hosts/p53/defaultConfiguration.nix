@@ -101,8 +101,8 @@
 		# boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore; # Use latest kernel with BORE scheduler.
 		# boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3; # Use latest kernel with BORE scheduler, v3 Processor optimization level for Coffee-Lake CPU, and Link-Time optimization.
 
-        nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
-        nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+        # nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
+        # nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
 
 #=====================================================================================================
 # Grapics
