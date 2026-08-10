@@ -119,28 +119,28 @@
 		];
 
         # Xorg drivers (needed even w/o xorg & on Wayland): "modesetting" handles the Intel iGPU, "nvidia" is required of dGPU
-        services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+        # services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
 
-        hardware.graphics.enable = true; # OpenGL/Vulkan userspace support
+        # hardware.graphics.enable = true; # OpenGL/Vulkan userspace support
 
-        hardware.nvidia = {
+        # hardware.nvidia = {
 
-            open = false; 
-            package = config.boot.kernelPackages.nvidiaPackages.stable; # properietary kernel module - most mature/well tested path for Turing class cards like T1000
-                nvidiaSettings = true;
+        #    open = false; 
+        #    package = config.boot.kernelPackages.nvidiaPackages.stable; # properietary kernel module - most mature/well tested path for Turing class cards like T1000
+        #        nvidiaSettings = true;
 
 
-            prime = {
-                offload = {
-                    enable = true; 
-                    enableOffloadCmd = true; # gives you a `nvidia-offload` wrapper command
-                };
+        #    prime = {
+        #        offload = {
+        #            enable = true; 
+        #            enableOffloadCmd = true; # gives you a `nvidia-offload` wrapper command
+        #        };
 
-                intelBusId = "PCI:0:2:0";
-                nvidiaBusId = "PCI:1:0:0";
-            };
+        #        intelBusId = "PCI:0:2:0";
+        #        nvidiaBusId = "PCI:1:0:0";
+        #    };
 
-        };
+        #};
 
 #=====================================================================================================
 # Wayland
@@ -181,11 +181,11 @@
 			enableDefaultPackages = true;
 
 			packages = with pkgs; [
-				nerd-fonts.fira-code
-				nerd-fonts.jetbrains-mono
-				noto-fonts
-				noto-fonts-cjk-sans
-				noto-fonts-color-emoji
+				# nerd-fonts.fira-code
+				# nerd-fonts.jetbrains-mono
+				# noto-fonts
+				# noto-fonts-cjk-sans
+				# noto-fonts-color-emoji
 				# liberaton_ttf
 			];
 
