@@ -17,7 +17,11 @@ set -euo pipefail
 # for a fresh installer ISO with nothing else on it. Use a local path
 # instead if you've already got the repo checked out (e.g. from a USB
 # stick), which is handy for testing changes before pushing.
-FLAKE_URI="github:1sGray/nix-files"
+FLAKE_URI="github:<your-username>/nix-files"
+
+# The normal user to prompt a password for after install. Edit per host
+# if a future host uses a different username.
+USER_NAME="gray"
 # ---------------------------------------------------------------------------
 
 usage() {
@@ -64,5 +68,21 @@ nix \
     --flake "${FLAKE_URI}#${HOST}" \
     --disk main "$DISK"
 
+# disko-install leaves the new system mounted at /mnt — use that to set
+# real passwords via the normal `passwd` tool before ever booting into it,
+# so there's no window where the machine has locked/no-password accounts.
 echo
-echo "Install complete. You can reboot into it now: sudo reboot"
+echo "Install finished. Now set passwords for the new system."
+echo
+
+read -r -p "Set a root password too? Leaving root locked (sudo-only via $USER_NAME) is the more common/secure choice. [y/N] " SET_ROOT
+if [[ "$SET_ROOT" =~ ^[Yy]$ ]]; then
+    echo "Root password:"
+    sudo nixos-enter --root /mnt -c 'passwd root'
+fi
+
+echo "Password for $USER_NAME:"
+sudo nixos-enter --root /mnt -c "passwd $USER_NAME"
+
+echo
+echo "Passwords set. Reboot into the new system when ready: sudo reboot"
