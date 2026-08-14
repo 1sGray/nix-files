@@ -16,7 +16,7 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/disk/by-id/CHANGE_ME"; # overwritten by --disk main <device> at install time
+        device = "/dev/disk/by-id/nvme-KBG40ZNS256G_NVMe_KIOXIA_256GB_50IPGESXPTLL"; # overwritten by --disk main <device> at install time
         type = "disk";
         content = {
           type = "gpt";
