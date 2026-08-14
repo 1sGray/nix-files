@@ -5,8 +5,8 @@
 		specialArgs = { inherit self inputs; };
 		modules = [
 
-			# self.nixosModules.machineConfiguration
-			self.nixosModules.defaultConfiguration
+			# self.nixosModules.defaultConfiguration
+			self.nixosModules.generalConfiguration
 			# self.nixosModules.niriConfiguration
             inputs.disko.nixosModules.disko
             ./_disko.nix
