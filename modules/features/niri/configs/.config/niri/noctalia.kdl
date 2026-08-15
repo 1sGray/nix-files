@@ -1,0 +1,31 @@
+//================================================================================
+// Noctalia Recommmendations
+//================================================================================
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 10 // Rounded corners of a modern look.
+    clip-to-geometry true // Clips window contents to the rounded corner boundaries.
+}
+
+
+window-rule { // Floating Noctalia settings window.
+	match app-id="dev.noctalia.Noctalia"
+	open-floating true
+	default-column-width { fixed 1080; }
+	default-window-height { fixed 920; }
+}
+
+debug {
+	honor-xdg-activation-with-invalid-serial // Allows notification actions and window activication from Noctalia.
+}
+
+// This allows Niri's overview to use Noctalia's backdrop (default blurred)
+layer-rule { 
+	match namespace="^noctalia-backdrop"
+	place-within-backdrop true
+}
+
+spawn-at-startup "noctalia-shell" // Autostart Noctalia
+
+

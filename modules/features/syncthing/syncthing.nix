@@ -6,6 +6,10 @@
            enable = true;
            systemService = true;
            package = pkgs.syncthing;
+           user = "gray";
+           group = "users";
+           dataDir = "/home/gray/.local/share/syncthing";
+
         };
     };
 
