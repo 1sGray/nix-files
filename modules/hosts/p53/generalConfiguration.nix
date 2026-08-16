@@ -48,6 +48,7 @@
 			brave
 			xwayland-satellite
 			ripgrep
+            bat
             keepassxc
             udiskie # udisks2 frontend
 

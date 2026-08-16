@@ -4,6 +4,8 @@
 
 		environment.systemPackages = [
 			self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia
+            pkgs.noctalia-qs
+            pkgs.python3
 		];
 
 		# programs.myNoctalia = {
