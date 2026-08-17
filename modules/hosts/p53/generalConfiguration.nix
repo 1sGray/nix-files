@@ -17,6 +17,7 @@
                 self.nixosModules.yazi
                 self.nixosModules.syncthing
                 # self.nixosModules.keepassxc
+                self.nixosModules.fzf
         ];
 
 #=====================================================================================================
