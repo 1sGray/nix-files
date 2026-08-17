@@ -2,7 +2,12 @@
 
 	flake.nixosConfigurations.p53 = inputs.nixpkgs.lib.nixosSystem {
 		
-		specialArgs = { inherit self inputs; };
+		specialArgs = { 
+            inherit self inputs;
+            username = "gray";
+            hostname = "p53";
+        };
+
 		modules = [
 
 			# self.nixosModules.defaultConfiguration

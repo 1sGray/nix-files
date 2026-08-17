@@ -18,9 +18,10 @@ vim.pack.add({ -- Plugin Repos
   -- { src = ""},
   -- { src = "https://github.com/neovim/nvim-lspconfig" },
   -- { src = "https://github.com/ellisonleao/gruvbox.nvim" },
-  { src = "tris203/precognition.nvim" },
+  { src = "https://github.com/tris203/precognition.nvim" },
   -- { src = "https://github.com/nvim-mini/mini.nvim" }
   -- QOL Plugins
+  { src = "https://github.com/RRethy/base16-nvim" },
 })
 
 -- Treesitter ============================================================================
@@ -100,6 +101,22 @@ vim.g.have_nerd_font = true -- Set Nerdfonts if installed and enabled in term
 -- vim.cmd("colorscheme gruvbox")
 
 -- Theme Plugins =========================================================================
+
+-- Noctalia Matugen Theming --
+local noctalia_theme_path = vim.fn.expand("~/.config/nvim/lua/matugen.lua")
+
+local function apply_noctalia_theme()
+  local ok, theme = pcall(dofile, noctalia_theme_path)
+  if ok and theme and theme.setup then
+    theme.setup()
+  end
+end
+
+apply_noctalia_theme()
+
+local sigusr1 = vim.uv.new_signal()
+sigusr1:start("sigusr1", vim.schedule_wrap(apply_noctalia_theme))
+
 -- Searching and Patterns ================================================================
 
 -- vim.opt.incsearch = true -- highlight all matches while incrementally searching
