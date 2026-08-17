@@ -308,7 +308,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Matecito",
+        "predefinedScheme": "Everforest",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
@@ -689,10 +689,6 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "niri"
-            },
-            {
-                "enabled": true,
                 "id": "gtk"
             },
             {
@@ -718,9 +714,13 @@
             {
                 "enabled": true,
                 "id": "yazi"
+            },
+            {
+                "enabled": true,
+                "id": "niri"
             }
         ],
-        "enableUserTheming": false
+        "enableUserTheming": true
     },
     "ui": {
         "boxBorderEnabled": false,

@@ -1,7 +1,7 @@
 { self, inputs, ... }: {
 	
 	flake.nixosModules.fzf = { pkgs, lib, ... }: {
-        envionment.systemPackages = [
+        environment.systemPackages = [
             pkgs.fzf
         ];
 
