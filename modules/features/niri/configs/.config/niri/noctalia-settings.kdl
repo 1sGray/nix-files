@@ -27,5 +27,5 @@ layer-rule {
 }
 
 spawn-at-startup "noctalia-shell" // Autostart Noctalia
-
+include "/home/gray/.config/niri/noctalia.kdl"
 
