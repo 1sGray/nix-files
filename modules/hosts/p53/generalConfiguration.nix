@@ -52,6 +52,7 @@
             bat
             keepassxc
             udiskie # udisks2 frontend
+	    obsidian
 
             # LSPs ===================================================================================
             lua-language-server
