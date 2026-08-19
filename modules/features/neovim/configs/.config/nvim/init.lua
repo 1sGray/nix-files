@@ -26,12 +26,12 @@ vim.pack.add({ -- Plugin Repos
 
 -- Treesitter ============================================================================
 
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "lua",
-    "rust",
-  },
-})
+-- require("nvim-treesitter.configs").setup({
+--   ensure_installed = {
+--     "lua",
+--     "rust",
+--   },
+-- })
 
 -- Blink.cmp =============================================================================
 

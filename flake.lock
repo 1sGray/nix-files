@@ -270,7 +270,28 @@
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_3",
         "noctalia": "noctalia",
+        "sls-steam": "sls-steam",
         "wrapper-modules": "wrapper-modules"
+      }
+    },
+    "sls-steam": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787138611,
+        "narHash": "sha256-g23pKmww8K//1JohETaUkXgnUpU6xt2rOnBiudxvBFs=",
+        "owner": "AceSLS",
+        "repo": "SLSsteam",
+        "rev": "a258706e1047227b460ee1fd0952ad4f86ad531c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AceSLS",
+        "repo": "SLSsteam",
+        "type": "github"
       }
     },
     "wrapper-modules": {

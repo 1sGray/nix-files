@@ -24,6 +24,11 @@
         inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
     };
 
+    sls-steam = {
+        url = "github:AceSLS/SLSsteam";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   # import modules/ automatically

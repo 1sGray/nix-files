@@ -1,23 +1,24 @@
 { self, inputs, ... }: {
 
-    flake.nixosModules.generalConfiguration = { pkgs, lib, config, ... }: {
-        imports = [
-            self.nixosModules.machineHardware
-                self.nixosModules.niri
-                self.nixosModules.neovim
-                self.nixosModules.zellij
-                self.nixosModules.fastfetch
-                self.nixosModules.zsh
-                self.nixosModules.starship
-                self.nixosModules.noctalia
-                self.nixosModules.kitty
-                self.nixosModules.zram
-                self.nixosModules.ananicy
-                self.nixosModules.scx
-                self.nixosModules.yazi
-                self.nixosModules.syncthing
-                # self.nixosModules.keepassxc
-                self.nixosModules.fzf
+    flake.nixosModules.generalConfiguration = { pkgs, config, ... }: {
+        imports = with self.nixosModules; [
+            machineHardware
+            niri
+            neovim
+            zellij
+            fastfetch
+            zsh
+            starship
+            noctalia
+            kitty
+            zram
+            ananicy
+            scx
+            yazi
+            syncthing
+            # keepassxc
+            fzf
+            steam
         ];
 
 #=====================================================================================================
@@ -30,7 +31,7 @@
 			isNormalUser = true;
 			description = "Gray";
 			extraGroups = [ "networkmanager" "wheel" ];
-			packages = with pkgs; [];
+			# packages = with pkgs; [];
 			shell = self.packages.${pkgs.stdenv.hostPlatform.system}.myZsh;
 		};
 
