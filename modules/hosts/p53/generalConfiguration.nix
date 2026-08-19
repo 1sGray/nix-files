@@ -48,6 +48,7 @@
 			git
 			brave
 			xwayland-satellite
+			wev
 			ripgrep
             bat
             keepassxc
