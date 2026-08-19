@@ -34,7 +34,7 @@ input {
         // drag false
         // drag-lock
         natural-scroll
-        // accel-speed 0.2
+        accel-speed 0.2 // pointer acceleration speed, valid values are from -1.0 to 1.0 where the default is 0.0.
         // accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
@@ -43,7 +43,8 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
+        accel-speed -0.3 // pointer acceleration speed, valid values are from -1.0 to 1.0 where the default is 0.0.
+
         // accel-profile "flat"
         // scroll-method "no-scroll"
     }
