@@ -8,6 +8,7 @@
                 proton-ge-bin
             ];
         };
+        hardware.graphics.enable32Bit = true;
     };
 
 	# perSystem = { pkg , lib, ... }: {};
