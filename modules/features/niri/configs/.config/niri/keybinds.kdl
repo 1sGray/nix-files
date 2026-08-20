@@ -45,7 +45,7 @@ binds {
 	Alt+Tab hotkey-overlay-title="Open Noctalia's Window Switcher" {spawn-sh "noctalia-shell ipc call windowSwitcher toggle"; }
 	Mod+X hotkey-overlay-title="Lock the current session" {spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 	Mod+Z hotkey-overlay-title="Open Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
-
+	Mod+grave hotkey-overlay-title="Open Keybind CheatSheet Plugin" { spawn-sh "noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
 
 	// Audio =========================================================================
 
@@ -54,11 +54,11 @@ binds {
 	// XF86AudioMute         { spawn-sh "noctalia msg volume-mute"; }
 	// // XF86AudioMicMute      { spawn-sh "noctalia msg"; }
 
-	// // IPC cal ver
-	// XF86AudioRaiseVolume  { spawn-sh "noctalia-shell ipc call volume increase"; }
-	// XF86AudioLowerVolume  { spawn-sh "noctalia-shell ipc call volume decrease"; }
-	// XF86AudioMute         { spawn-sh "noctalia-shell ipc call volume mute"; }
-	// // XF86AudioMicMute      { spawn-sh "noctalia msg"; }
+	// IPC cal ver
+	XF86AudioRaiseVolume  { spawn-sh "noctalia-shell ipc call volume increase"; }
+	XF86AudioLowerVolume  { spawn-sh "noctalia-shell ipc call volume decrease"; }
+	XF86AudioMute         { spawn-sh "noctalia-shell ipc call volume mute"; }
+	XF86AudioMicMute      { spawn-sh "noctalia msg"; }
 
 	// Brightness ====================================================================
 
@@ -66,8 +66,8 @@ binds {
 	// XF86MonBrightnessDown  { spawn "noctalia msg brightness-down"; }
 
 	// IPC call ver
-	// XF86MonBrightnessUp    { spawn-sh "noctalia-shell ipc call brightness increase"; }
-	// XF86MonBrightnessDown  { spawn-sh "noctalia-shell ipc call brightness decrease"; }
+	XF86MonBrightnessUp    { spawn-sh "noctalia-shell ipc call brightness increase"; }
+	XF86MonBrightnessDown  { spawn-sh "noctalia-shell ipc call brightness decrease"; }
 
 	//================================================================================
 	// Windows

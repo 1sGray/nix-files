@@ -2,5 +2,5 @@
 	
 	flake.nixosModules.template = { pkgs, lib, ... }: {};
 
-	perSystem = { pkg , lib, ... }: {};
+	# perSystem = { pkg , lib, ... }: {};
 }

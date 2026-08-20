@@ -19,6 +19,8 @@
             # keepassxc
             fzf
             steam
+            gamescope
+            # slsSteam
         ];
 
 #=====================================================================================================
@@ -56,6 +58,8 @@
             udiskie # udisks2 frontend
             obsidian
             discord
+            # p7zip
+            p7zip-rar
 
             # LSPs ===================================================================================
             lua-language-server
@@ -155,6 +159,18 @@
 
 		programs.xwayland.enable = true;
 
+#=====================================================================================================
+# Inputs
+#=====================================================================================================
+
+        # services.libinput = {
+        #     enable = true;
+        #      mouse = {
+        #          accelProfile = "flat"; # Disables acceleration for raw input
+        #          # Note: Direct speed adjustment options for mice are limited in libinput;
+        #          # some users resort to xinput or extraConfig for precise speed control.
+        #      };
+        # };
 
 #=====================================================================================================
 # Power
