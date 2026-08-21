@@ -1,22 +1,48 @@
 { self, inputs, ... }: {
 	
-	flake.nixosModules.slsSteam = { pkgs, lib, ... }: {
+	flake.nixosModules.slsSteam = { pkgs, lib, username, ... }: let
+
+        # # Build a 64-bit version of SLSsteam
+        # slssteam64 = inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam.overrideAttrs (old: {
+        #     buildPhase = ''
+        #         dotnet build -c Release -r linux-x64
+        #     '';
+        #     installPhase = ''
+        #         mkdir -p $out/lib
+        #         cp bin/Release/net6.0/linux-x64/publish/SLSsteam.so $out/lib/SLSsteam64.so
+        #     '';
+        # });
+
+        slssteam64 = pkgs.stdenv.mkDerivation {
+            name = "slssteam64";
+            src = builtins.fetchurl {
+                url = "https://github.com/AceSLS/SLSsteam/releases/latest/download/SLSsteam64.so";
+                sha256 = "sha256-IItrdb7Puk05RqOBWZYFC5X6Wl1sJmCfh5MWVHw5iMM"; 
+            };
+            dontUnpack = true;
+            installPhase = ''
+                mkdir -p $out/lib
+                cp $src $out/lib/SLSsteam64.so
+            '';
+        };
+
+    in{
 
         programs.steam = {
             package = pkgs.steam.override {
                 extraEnv = {
-                    LD_AUDIT = "${
-                        inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam
-                    }/library-inject.so:${
-                        inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam
-                    }/SLSsteam.so";
+                    LD_PRELOAD = "${slssteam64}/lib/SLSsteam64.so";
                 };
             };
         };
 
+
         # systemd.tmpfiles.rules = [
-        #     "d /home/${username}/.config/nvim/lua 0755 ${username} users -"
-        #         "L+ /home/${username}/.config/nvim/lua/matugen-template.lua - - - - ${./configs/.config/nvim/lua/matugen-template.lua}"
+        #     # Create the SLSsteam config directory if missing
+        #     "d /home/${username}/.config/SLSsteam 0755 ${username} users -"
+        #
+        #     # Symlink your config.yaml ONLY if the destination does NOT exist (L vs L+)
+        #     "L /home/${username}/.config/SLSsteam/config.yaml - - - - ${./configs/.config/SLSsteam/config.yaml}"
         # ];
 
     };

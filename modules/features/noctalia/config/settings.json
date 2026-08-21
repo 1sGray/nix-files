@@ -129,12 +129,12 @@
                 },
                 {
                     "clockColor": "none",
-                    "customFont": "FiraCode Nerd Font",
+                    "customFont": "",
                     "formatHorizontal": "HH:mm ddd, MMM dd",
-                    "formatVertical": "HH mm - dd MM",
+                    "formatVertical": "hh : mm  AP - dd MM ddd",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
-                    "useCustomFont": true
+                    "useCustomFont": false
                 },
                 {
                     "compactMode": true,

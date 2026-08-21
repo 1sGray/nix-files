@@ -29,6 +29,8 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-crab.url = "github:ItszFinn/nix-crab";
+
   };
 
   # import modules/ automatically
