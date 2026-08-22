@@ -534,7 +534,7 @@
     "steamidra": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-WR+VjtMnNluq576Eq/s+ct8ZUJ1PF74RhYgrVUm8+2c=",
+        "narHash": "sha256-UwrSDHRqmUKb6LyJ6cxusF3HbQjfueswbtvE1akpvw4=",
         "type": "file",
         "url": "https://api.github.com/repos/Midrags/SFF/tags"
       },

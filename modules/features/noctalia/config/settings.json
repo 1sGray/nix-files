@@ -121,7 +121,7 @@
                     "colorizeSystemIcon": "primary",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
-                    "enableColorization": true,
+                    "enableColorization": false,
                     "icon": "rocket",
                     "iconColor": "none",
                     "id": "Launcher",
@@ -301,7 +301,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Everforest",
+        "predefinedScheme": "Miasma",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false

@@ -3,11 +3,11 @@
 	flake.nixosModules.nixCrab = { pkgs, lib,... }: {
 
         imports = [ inputs.nix-crab.nixosModules.default ];
-        programs.nix-crab.slssteam.enable = true;
+        programs.nix-crab.slssteam.enable = false;
         # programs.steam.enable = true;
         programs.nix-crab.millennium = {
 
-            enable = true;      # optional
+            enable = false;      # optional
 
             # plugins = [
             #     "e73371b61eef" # Size On Disk

@@ -18,9 +18,11 @@
             syncthing
             # keepassxc
             fzf
-            steam
-            gamescope
-            nixCrab
+
+            # steam
+            # gamescope
+            # nixCrab
+            # steamidra
         ];
 
 #=====================================================================================================
