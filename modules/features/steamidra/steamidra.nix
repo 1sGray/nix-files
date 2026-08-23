@@ -12,6 +12,10 @@
 
         steamidraLauncher = pkgs.writeShellScriptBin "steamidra" ''
             set -euo pipefail
+            # NOTE: this script downloads the AppImage + assets into ${dataDir} on first
+            # run, imperatively. Nix has no visibility into this — disabling this module
+            # only stops the desktop-entry symlink from being recreated; it will NOT clean
+            # up ${dataDir}. Run `rm -rf ${dataDir}` manually if fully removing this tool.
             app="${dataDir}/SteaMidra.AppImage"
 
             if [ "$(cat "${dataDir}/.version" 2>/dev/null || true)" != "${version}" ]; then

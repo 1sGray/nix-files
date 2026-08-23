@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-    flake.nixosModules.generalConfiguration = { pkgs, config, ... }: {
+    flake.nixosModules.generalConfiguration = { pkgs, config, username, hostname, ... }: {
         imports = with self.nixosModules; [
             machineHardware
             niri
@@ -19,8 +19,9 @@
             # keepassxc
             fzf
 
-            # steam
-            # gamescope
+            steam
+            gamescope
+            mangohud
             # nixCrab
             # steamidra
         ];
@@ -121,12 +122,12 @@
 		boot.initrd.kernelModules = [ 
 			"i915" # early KMS font fix
 
-            # The following loads nvidia modules, if dGPU is used only when neccissary then keep commented
-
-			"nvidia"
-			"nvidia_modeset"
-			"nvidia_drm"
-			"ntsync"
+			#          # The following loads nvidia modules, if dGPU is used only when neccissary then keep commented
+			#
+			# "nvidia"
+			# "nvidia_modeset"
+			# "nvidia_drm"
+			# "ntsync"
 		];
 
         # Xorg drivers (needed even w/o xorg & on Wayland): "modesetting" handles the Intel iGPU, "nvidia" is required for the dGPU
@@ -138,8 +139,8 @@
 
            open = false; 
            package = config.boot.kernelPackages.nvidiaPackages.stable; # properietary kernel module - most mature/well tested path for Turing class cards like T1000
-               nvidiaSettings = true;
-
+           nvidiaSettings = true;
+           modesetting.enable = true;   # required for Wayland
 
            prime = {
                offload = {
@@ -147,10 +148,10 @@
                    enableOffloadCmd = true; # gives you a `nvidia-offload` wrapper command
                };
 
-               intelBusId = "PCI:0:2:0";
-               nvidiaBusId = "PCI:1:0:0";
+               intelBusId = "PCI:0@0:2:0";
+               nvidiaBusId = "PCI:1@0:0:0";
            };
-
+           powerManagement.finegrained = true; # This lets the T1000 fully suspend (RTD3) when nothing's using it.
         };
 
 #=====================================================================================================
