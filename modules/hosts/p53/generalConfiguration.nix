@@ -78,8 +78,15 @@
             # Cli Tools ==============================================================================
 			wget
 			git
+
+            ffmpeg
+            poppler
+            resvg
+            imagemagick
+
             p7zip-rar
             wev
+            jq
 
             # The enhancements
             eza # better ls
