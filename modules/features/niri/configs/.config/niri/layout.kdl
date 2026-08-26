@@ -47,7 +47,7 @@ layout {
     focus-ring {
         // off // Uncomment this line to disable the focus ring.
 
-        width 4 // How many logical pixels the ring extends out from the windows.
+        width 2 // How many logical pixels the ring extends out from the windows.
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"

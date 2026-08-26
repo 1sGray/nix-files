@@ -1,22 +1,22 @@
 { self, inputs, ... }: {
 	
-	flake.nixosModules.nixCrab = { pkgs, lib,... }: {
+	flake.nixosModules.nixCrab = { pkgs, lib, username, ... }: {
 
         imports = [ inputs.nix-crab.nixosModules.default ];
-        programs.nix-crab.slssteam.enable = false;
+        programs.nix-crab.slssteam.enable = true;
         # programs.steam.enable = true;
         programs.nix-crab.millennium = {
-
-            enable = false;      # optional
-
-            # plugins = [
-            #     "e73371b61eef" # Size On Disk
-            # ];
-            # themes  = [
-            #     "8YTvx3fAAfwQSu6MNOfH" # OldSteam
-            # ];
-
+            enable = true;      # optional
         };
+
+        systemd.tmpfiles.rules = [
+            # Create the SLSsteam config directory if missing
+            "d /home/${username}/.config/SLSsteam 0755 ${username} users -"
+
+            # Symlink your config.yaml ONLY if the destination does NOT exist (L vs L+)
+            "L /home/${username}/.config/SLSsteam/config.yaml - - - - ${./configs/.config/SLSsteam/config.yaml}"
+        ];
+
     };
 	# perSystem = { pkg , lib, ... }: {};
 }

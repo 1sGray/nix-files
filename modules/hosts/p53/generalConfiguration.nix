@@ -22,8 +22,8 @@
             steam
             gamescope
             mangohud
-            # nixCrab
-            # steamidra
+            nixCrab
+            steamidra
         ];
 
 #=====================================================================================================
