@@ -78,10 +78,17 @@
             # Cli Tools ==============================================================================
 			wget
 			git
-			ripgrep
-            bat
             p7zip-rar
-			wev
+            wev
+
+            # The enhancements
+            eza # better ls
+            fd # better find
+			ripgrep # better grep
+            bat # better cat
+            zoxide # better cd
+
+
 
             # LSPs ===================================================================================
             lua-language-server

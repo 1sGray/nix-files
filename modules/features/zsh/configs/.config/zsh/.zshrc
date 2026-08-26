@@ -51,7 +51,7 @@ source "$this_dir/prompt.zsh"    # Prompt theme
 # Smart Directory Navigation
 # ==========================================
 
-# eval "$(zoxide init zsh)" # Initialzing Zoxide
+eval "$(zoxide init zsh)" # Initialzing Zoxide
 
 # ==========================================
 # Completion
