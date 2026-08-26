@@ -1,16 +1,11 @@
-{ self, inputs, ... }: {
+{ ... }: {
 	
-	flake.nixosModules.fzf = { pkgs, lib, ... }: {
+	flake.nixosModules.fzf = { pkgs, ... }: {
         environment.systemPackages = [
             pkgs.fzf
         ];
 
-        programs.fzf = {
-            fuzzyCompletion = true;
-            keybindings = true;
-        };
     };
 
-	# perSystem = { pkg , lib, ... }: {};
 }
 

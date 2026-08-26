@@ -1,29 +1,42 @@
 { self, inputs, ... }: {
 
     flake.nixosModules.generalConfiguration = { pkgs, config, username, hostname, ... }: {
+#=====================================================================================================
+# Modules
+#=====================================================================================================
         imports = with self.nixosModules; [
             machineHardware
             niri
-            neovim
-            zellij
-            fastfetch
-            zsh
-            starship
             noctalia
-            kitty
             zram
             ananicy
             scx
-            yazi
-            syncthing
-            # keepassxc
+
+
+            # Cli Tools ==============================================================================
+            starship
+            fastfetch
             fzf
 
+            # TUI Apps ===============================================================================
+            zellij
+            kitty
+            neovim
+            yazi
+            zsh
+
+            # GUI Apps ===============================================================================
+
+            # Services ===============================================================================
+            syncthing
+
+            # Steam Stuff ============================================================================
             steam
             gamescope
             mangohud
             nixCrab
             steamidra
+
         ];
 
 #=====================================================================================================
@@ -49,25 +62,32 @@
 		# $ nix search wget
 
 		environment.systemPackages = with pkgs; [
-			# neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-			wget
-			git
-			brave
-			xwayland-satellite
-			wev
-			ripgrep
-            bat
-            keepassxc
-            udiskie # udisks2 frontend
+
+            # GUI Apps ===============================================================================
             obsidian
             discord
-            # p7zip
+			brave
+
+            # Services ===============================================================================
+            keepassxc
+            udiskie # udisks2 frontend
+			xwayland-satellite
+            
+            # TUI Apps ===============================================================================
+
+            # Cli Tools ==============================================================================
+			wget
+			git
+			ripgrep
+            bat
             p7zip-rar
+			wev
 
             # LSPs ===================================================================================
             lua-language-server
             rust-analyzer
             nixd
+
 		];
 
 		

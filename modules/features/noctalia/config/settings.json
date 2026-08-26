@@ -46,7 +46,7 @@
         "barType": "framed",
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
-        "contentPadding": 0,
+        "contentPadding": 4,
         "density": "default",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
@@ -323,7 +323,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Ayu Green",
+        "predefinedScheme": "Atuel",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
