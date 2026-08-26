@@ -43,6 +43,8 @@ source "$this_dir/bindings.zsh"  # Custom Keybindings
 
 source "$this_dir/plugins.zsh"   # Plugins and plugin manager
 
+source "$this_dir/yazi.zsh"       # Yazi configuration
+
 source "$this_dir/fzf.zsh"       # Fzf configuration
 
 source "$this_dir/prompt.zsh"    # Prompt theme
