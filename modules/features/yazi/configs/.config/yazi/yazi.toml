@@ -1,0 +1,4 @@
+# Sparse on purpose — fill in as you go.
+# Section names have shifted between yazi releases (e.g. [manager] -> [mgr]),
+# so check `yazi --version` against https://yazi-rs.github.io/docs/configuration/yazi
+# before relying on any key here.

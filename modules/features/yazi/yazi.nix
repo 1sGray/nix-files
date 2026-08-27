@@ -1,25 +1,38 @@
+# modules/features/yazi/yazi.nix
 { self, inputs, ... }: {
 
-	flake.nixosModules.yazi = { pkgs, lib, self, inputs, ... }:{
+	flake.nixosModules.yazi = { pkgs, lib, username, ... }: let
 
-		# environment.systemPackages = [
-		# 	self.packages.${pkgs.stdenv.hostPlatform.system}.myYazi
-		# ];
+		configDir = ./configs/.config/yazi;
+		homeDir = "/home/${username}";
+		yaziConfigDir = "${homeDir}/.config/yazi";
 
-		programs.yazi = {
-			enable = true;
-			package = self.packages.${pkgs.stdenv.hostPlatform.system}.myYazi;
-
+		# nixpkgs-packaged plugins to symlink in. Add/remove entries here.
+		plugins = with pkgs.yaziPlugins; {
+			full-border = full-border;
+			# smart-enter = smart-enter;
+			# git = git;
 		};
 
+		pluginLinkRules = lib.mapAttrsToList (name: drv:
+			"L+ ${yaziConfigDir}/plugins/${name}.yazi - ${username} users - ${drv}"
+		) plugins;
+
+	in {
+		environment.systemPackages = [ pkgs.yazi ];
+
+		systemd.tmpfiles.rules = [
+			"d ${yaziConfigDir} 0755 ${username} users -"
+			"d ${yaziConfigDir}/plugins 0755 ${username} users -"
+
+			# Static, Nix-managed files
+			"L+ ${yaziConfigDir}/yazi.toml - ${username} users - ${configDir}/yazi.toml"
+			"L+ ${yaziConfigDir}/keymap.toml - ${username} users - ${configDir}/keymap.toml"
+			"L+ ${yaziConfigDir}/init.lua - ${username} users - ${configDir}/init.lua"
+
+			# Deliberately NOT managing theme.toml here — noctalia/matugen
+			# owns that file directly and writes it live.
+		] ++ pluginLinkRules;
 	};
 
-	perSystem = { pkgs, self, lib, ... }: {
-		packages.myYazi = inputs.wrapper-modules.wrappers.yazi.wrap {
-			inherit pkgs;
-            # constructFiles.generatedConfig.content = lib.mkForce (
-            #     builtins.readfile ./configs/.config/yazi/config.toml
-            # );
-		};
-	};
 }
