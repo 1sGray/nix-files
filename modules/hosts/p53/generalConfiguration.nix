@@ -35,7 +35,6 @@
             gamescope
             mangohud
             nixCrab
-            # steamidra
 
         ];
 
