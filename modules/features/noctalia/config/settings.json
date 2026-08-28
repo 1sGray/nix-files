@@ -323,7 +323,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Ayu",
+        "predefinedScheme": "Ayu Green",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
@@ -433,7 +433,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1.25,
+        "animationSpeed": 2,
         "autoStartAuth": false,
         "avatarImage": "/home/gray/Documents/Pics/love_my_music_by_kerochao.jpg",
         "boxRadiusRatio": 1,

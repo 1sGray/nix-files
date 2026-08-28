@@ -31,10 +31,10 @@
             syncthing
 
             # Steam Stuff ============================================================================
-            steam
+            # steam
             gamescope
             mangohud
-            nixCrab
+            nixCrabSteam
 
         ];
 
