@@ -14,10 +14,10 @@
         # Stable, colon-free device symlinks for AQ_DRM_DEVICES — card0/card1
 		# numbering isn't guaranteed stable across boots, and by-path names
 		# contain colons that collide with AQ_DRM_DEVICES's ":" separator.
-		services.udev.extraRules = ''
-			SUBSYSTEM=="drm", KERNEL=="card[0-9]", ATTRS{vendor}=="0x8086", SYMLINK+="dri/card-intel"
-			SUBSYSTEM=="drm", KERNEL=="card[0-9]", ATTRS{vendor}=="0x10de", SYMLINK+="dri/card-nvidia"
-		'';
+        services.udev.extraRules = ''
+			SUBSYSTEM=="drm", KERNEL=="card[0-9]", KERNELS=="0000:00:02.0", SYMLINK+="dri/card-intel"
+			SUBSYSTEM=="drm", KERNEL=="card[0-9]", KERNELS=="0000:01:00.0", SYMLINK+="dri/card-nvidia"
+        '';
 
 		systemd.tmpfiles.rules = [
 			"d ${hyprDir} 0755 ${username} users -"
