@@ -4,8 +4,8 @@
 -- "PCI:1@0:0:0" -> 0000:00:02.0 / 0000:01:00.0). iGPU listed first = primary.
 -- Confirm the symlinks exist first: `ls -la /dev/dri/by-path/`
 hl.env(
-    "AQ_DRM_DEVICES",
-    "/dev/dri/by-path/pci-0000:00:02.0-card:/dev/dri/by-path/pci-0000:01:00.0-card"
+      "AQ_DRM_DEVICES",
+      "/dev/dri/card-intel:/dev/dri/card-nvidia"
 )
 
 hl.env("XCURSOR_SIZE", "24")
