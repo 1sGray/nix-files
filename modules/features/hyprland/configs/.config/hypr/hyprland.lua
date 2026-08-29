@@ -1,0 +1,7 @@
+require("graphics")
+require("monitors")
+require("inputs")
+require("look")
+require("window-rules")
+require("keybinds")
+require("noctalia")

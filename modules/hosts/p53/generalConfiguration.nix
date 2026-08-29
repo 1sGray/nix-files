@@ -167,7 +167,13 @@
         # Xorg drivers (needed even w/o xorg & on Wayland): "modesetting" handles the Intel iGPU, "nvidia" is required for the dGPU
         services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
 
-        hardware.graphics.enable = true; # OpenGL/Vulkan userspace support
+        hardware.graphics = {
+            enable = true; # OpenGL/Vulkan userspace support
+
+            extraPackages = with pkgs; [
+                intel-media-driver # VA-API for the iGPU — LIBVA_DRIVER_NAME=iHD, works with Brave/Chromium
+            ];
+        };
 
         hardware.nvidia = {
 
@@ -177,6 +183,7 @@
            modesetting.enable = true;   # required for Wayland
 
            prime = {
+
                offload = {
                    enable = true; 
                    enableOffloadCmd = true; # gives you a `nvidia-offload` wrapper command
@@ -184,8 +191,13 @@
 
                intelBusId = "PCI:0@0:2:0";
                nvidiaBusId = "PCI:1@0:0:0";
+
            };
+
+           powerManagement.enable = true;
            powerManagement.finegrained = true; # This lets the T1000 fully suspend (RTD3) when nothing's using it.
+           videoAcceleration = true;
+
         };
 
 #=====================================================================================================
