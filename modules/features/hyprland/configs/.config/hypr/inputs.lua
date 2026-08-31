@@ -9,11 +9,6 @@ hl.config({
         sensitivity = -0.3,
         accel_profile = "flat",
 
-        touchpad = {
-            -- mirrors niri's touchpad { tap; natural-scroll; accel-speed 0.2 }
-            natural_scroll = true,
-            ["tap-to-click"] = true,
-        },
     },
 })
 
