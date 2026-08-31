@@ -30,6 +30,8 @@
 			"window-rules.lua"
 			"keybinds.lua"
 			"noctalia.lua"
+            "autostart.lua"
+            "scrollingLayout.lua"
 		];
 	};
 }

@@ -2,14 +2,14 @@
 
 require("monitors")
 -- require("programs")
--- require("autostart")
+require("autostart")
 -- require("env-var")
 -- require("permissions")
 require("look")
 -- require("misc")
 require("inputs")
 require("keybinds")
--- require("scrolling-layout")
+require("scrollingLayout")
 -- require("dwindle-layout")
 -- require("master-layout")
 
