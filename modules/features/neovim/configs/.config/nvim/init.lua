@@ -42,12 +42,12 @@ vim.pack.add({ -- Plugin Repos
 
 -- precognition =============================================================================
 
--- require("precongintion").setup({})
+-- require("precognintion").setup({})
 
 
 -- mini.nvim =============================================================================
 
--- require("mini.indentscope").setup()
+require("mini.indentscope").setup()
 
 -- =======================================================================================
 -- LSPs

@@ -32,6 +32,7 @@
 			"noctalia.lua"
             "autostart.lua"
             "scrollingLayout.lua"
+            "devices.lua"
 		];
 	};
 }
