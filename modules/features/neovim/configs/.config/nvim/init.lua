@@ -7,42 +7,41 @@
 -- Globals
 -- =======================================================================================
 
-
 -- =======================================================================================
 -- Plugins
 -- =======================================================================================
 
 vim.pack.add({ -- Plugin Repos
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  -- { src = "https://github.com/Saghen/blink.cmp"},
-  -- { src = ""},
+  { src = "https://github.com/Saghen/blink.cmp"},
+  { src = "https://github.com/Saghen/blink.lib" }, 
   -- { src = "https://github.com/neovim/nvim-lspconfig" },
   -- { src = "https://github.com/ellisonleao/gruvbox.nvim" },
   { src = "https://github.com/tris203/precognition.nvim" },
-  -- { src = "https://github.com/nvim-mini/mini.nvim" }
+  { src = "https://github.com/nvim-mini/mini.nvim" },
   -- QOL Plugins
   { src = "https://github.com/RRethy/base16-nvim" },
 })
 
 -- Treesitter ============================================================================
 
--- require("nvim-treesitter.configs").setup({
---   ensure_installed = {
---     "lua",
---     "rust",
---   },
--- })
+require("nvim-treesitter").setup({
+  ensure_installed = {
+    "lua",
+    "rust",
+  },
+})
 
 -- Blink.cmp =============================================================================
 
--- require("blink.cmp").setup({
---   signature = { enabled = true },
---   fuzzy = { implementation = "lua" },
--- })
+require("blink.cmp").setup({
+  signature = { enabled = true },
+  fuzzy = { implementation = "lua" },
+})
 
 -- precognition =============================================================================
 
--- require("precognintion").setup({})
+require("precognition").setup({})
 
 
 -- mini.nvim =============================================================================
@@ -91,7 +90,6 @@ vim.cmd("set completeopt+=noselect") -- Stops inputting the first selected optio
 -- =======================================================================================
 -- Options
 -- =======================================================================================
-
 
 -- Fonts ================================================================================
 vim.g.have_nerd_font = true -- Set Nerdfonts if installed and enabled in term
