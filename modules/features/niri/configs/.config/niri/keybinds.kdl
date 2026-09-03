@@ -39,13 +39,13 @@ binds {
 	// Mod+Comma hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "noctalia msg settings-toggle"; }
 	// Alt+Tab hotkey-overlay-title="Open Noctalia's Window Switcher" {spawn-sh "noctalia msg window-switcher"; }
 
-	Mod+Space hotkey-overlay-title="Toggle Noctalia Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-	Mod+S hotkey-overlay-title="Toggle Noctalia Control Center" {spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
-	Mod+B hotkey-overlay-title="Toggle Noctalia Settings" {spawn-sh "noctalia-shell ipc call settings toggle"; }
-	Alt+Tab hotkey-overlay-title="Open Noctalia's Window Switcher" {spawn-sh "noctalia-shell ipc call windowSwitcher toggle"; }
-	Mod+X hotkey-overlay-title="Lock the current session" {spawn-sh "noctalia-shell ipc call lockScreen lock"; }
-	Mod+Z hotkey-overlay-title="Open Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
-	Mod+grave hotkey-overlay-title="Open Keybind CheatSheet Plugin" { spawn-sh "noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
+	Mod+Space hotkey-overlay-title="Toggle Noctalia Launcher"           { spawn-sh "noctalia-shell ipc call launcher toggle";                  }
+    Mod+S hotkey-overlay-title    ="Toggle Noctalia Control Center"     { spawn-sh "noctalia-shell ipc call controlCenter toggle";             }
+    Mod+B hotkey-overlay-title    ="Toggle Noctalia Settings"           { spawn-sh "noctalia-shell ipc call settings toggle";                  }
+    Alt+Tab hotkey-overlay-title  ="Open Noctalia's Window Switcher"    { spawn-sh "noctalia-shell ipc call windowSwitcher toggle";            }
+    Mod+X hotkey-overlay-title    ="Lock the current session"           { spawn-sh "noctalia-shell ipc call lockScreen lock";                  }
+	Mod+Z hotkey-overlay-title    ="Open Session Menu"                  { spawn-sh "noctalia-shell ipc call sessionMenu toggle";               }
+	Mod+grave hotkey-overlay-title="Open Keybind CheatSheet Plugin"     { spawn-sh "noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
 
 	// Audio =========================================================================
 
@@ -57,8 +57,8 @@ binds {
 	// IPC cal ver
 	XF86AudioRaiseVolume  { spawn-sh "noctalia-shell ipc call volume increase"; }
 	XF86AudioLowerVolume  { spawn-sh "noctalia-shell ipc call volume decrease"; }
-	XF86AudioMute         { spawn-sh "noctalia-shell ipc call volume mute"; }
-	XF86AudioMicMute      { spawn-sh "noctalia msg"; }
+	XF86AudioMute         { spawn-sh "noctalia-shell ipc call volume mute";     }
+	XF86AudioMicMute      { spawn-sh "noctalia msg";                            }
 
 	// Brightness ====================================================================
 
@@ -89,17 +89,17 @@ binds {
 	Mod+End   hotkey-overlay-title="Change Focus Last"   { focus-column-last;  }
 
 	// Move focused window ===========================================================
-	Mod+Ctrl+Left  hotkey-overlay-title="Move Focus Left"{ move-column-left; }
-	Mod+Ctrl+Down  hotkey-overlay-title="Move Focus Down"{ move-window-down; }
-	Mod+Ctrl+Up    hotkey-overlay-title="Move Focus Up"{ move-window-up; }
+	Mod+Ctrl+Left  hotkey-overlay-title="Move Focus Left" { move-column-left;  }
+	Mod+Ctrl+Down  hotkey-overlay-title="Move Focus Down" { move-window-down;  }
+	Mod+Ctrl+Up    hotkey-overlay-title="Move Focus Up"   { move-window-up;    }
 	Mod+Ctrl+Right hotkey-overlay-title="Move Focus Right"{ move-column-right; }
-	Mod+Ctrl+H     hotkey-overlay-title="Move Focus Left"{ move-column-left; }
-	Mod+Ctrl+J     hotkey-overlay-title="Move Focus Down"{ move-window-down; }
-	Mod+Ctrl+K     hotkey-overlay-title="Move Focus Up"{ move-window-up; }
+	Mod+Ctrl+H     hotkey-overlay-title="Move Focus Left" { move-column-left;  }
+	Mod+Ctrl+J     hotkey-overlay-title="Move Focus Down" { move-window-down;  }
+	Mod+Ctrl+K     hotkey-overlay-title="Move Focus Up"   { move-window-up;    }
 	Mod+Ctrl+L     hotkey-overlay-title="Move Focus Right"{ move-column-right; }
 
 	Mod+Ctrl+Home { move-column-to-first; }
-	Mod+Ctrl+End  { move-column-to-last; }
+	Mod+Ctrl+End  { move-column-to-last;  }
 
 	// Alternative commands that move across workspaces when reaching
 	// the first or last window in a column.
@@ -110,18 +110,18 @@ binds {
 
 	// Move window to workspace ======================================================
 	Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-	Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+	Mod+Ctrl+Page_Up   { move-column-to-workspace-up;   }
 	Mod+Ctrl+U         { move-column-to-workspace-down; }
-	Mod+Ctrl+I         { move-column-to-workspace-up; }
+	Mod+Ctrl+I         { move-column-to-workspace-up;   }
 
 	// Move window to monitor ========================================================
-	Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-	Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-	Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+	Mod+Shift+Ctrl+Left  { move-column-to-monitor-left;  }
+	Mod+Shift+Ctrl+Down  { move-column-to-monitor-down;  }
+	Mod+Shift+Ctrl+Up    { move-column-to-monitor-up;    }
 	Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-	Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-	Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-	Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+	Mod+Shift+Ctrl+H     { move-column-to-monitor-left;  }
+	Mod+Shift+Ctrl+J     { move-column-to-monitor-down;  }
+	Mod+Shift+Ctrl+K     { move-column-to-monitor-up;    }
 	Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
 
@@ -134,7 +134,7 @@ binds {
 	// The following binds move the focused window in and out of a column.
 	// If the window is alone, they will consume it into the nearby column to the side.
 	// If the window is already in a column, they will expel it out.
-	Mod+BracketLeft  { consume-or-expel-window-left; }
+	Mod+BracketLeft  { consume-or-expel-window-left;  }
 	Mod+BracketRight { consume-or-expel-window-right; }
 
 	// Consume one window from the right to the bottom of the focused column.
@@ -201,15 +201,15 @@ binds {
 	// And you can also move a whole workspace to another monitor:
 	// Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
 	// ...
-	Mod+Shift+Page_Down { move-workspace-down; }
-	Mod+Shift+Page_Up   { move-workspace-up; }
-	Mod+Shift+U         { move-workspace-down; }
-	Mod+Shift+I         { move-workspace-up; }
+	Mod+Shift+Page_Down { move-workspace-down;  }
+	Mod+Shift+Page_Up   { move-workspace-up;    }
+	Mod+Shift+U         { move-workspace-down;  }
+	Mod+Shift+I         { move-workspace-up;    }
 
-	Mod+Page_Down      { focus-workspace-down; }
-	Mod+Page_Up        { focus-workspace-up; }
-	Mod+U              { focus-workspace-down; }
-	Mod+I              { focus-workspace-up; }
+	Mod+Page_Down       { focus-workspace-down; }
+	Mod+Page_Up         { focus-workspace-up;   }
+	Mod+U               { focus-workspace-down; }
+	Mod+I               { focus-workspace-up;   }
 
 	// You can refer to workspaces by index. However, keep in mind that
 	// niri is a dynamic workspace system, so these commands are kind of
@@ -228,6 +228,7 @@ binds {
 	Mod+7 { focus-workspace 7; }
 	Mod+8 { focus-workspace 8; }
 	Mod+9 { focus-workspace 9; }
+
 	Mod+Ctrl+1 { move-column-to-workspace 1; }
 	Mod+Ctrl+2 { move-column-to-workspace 2; }
 	Mod+Ctrl+3 { move-column-to-workspace 3; }
@@ -242,13 +243,13 @@ binds {
 	// Monitors
 	//================================================================================
 
-	Mod+Shift+Left  { focus-monitor-left; }
-	Mod+Shift+Down  { focus-monitor-down; }
-	Mod+Shift+Up    { focus-monitor-up; }
+	Mod+Shift+Left  { focus-monitor-left;  }
+	Mod+Shift+Down  { focus-monitor-down;  }
+	Mod+Shift+Up    { focus-monitor-up;    }
 	Mod+Shift+Right { focus-monitor-right; }
-	Mod+Shift+H     { focus-monitor-left; }
-	Mod+Shift+J     { focus-monitor-down; }
-	Mod+Shift+K     { focus-monitor-up; }
+	Mod+Shift+H     { focus-monitor-left;  }
+	Mod+Shift+J     { focus-monitor-down;  }
+	Mod+Shift+K     { focus-monitor-up;    }
 	Mod+Shift+L     { focus-monitor-right; }
 
 	// Powers off the monitors. To turn them back on, do any input like
@@ -258,9 +259,9 @@ binds {
 	// Screenshots
 	//================================================================================
 
-	Print { screenshot; }
+	Print      { screenshot; }
 	Ctrl+Print { screenshot-screen; }
-	Alt+Print { screenshot-window; }
+	Alt+Print  { screenshot-window; }
 
 	//================================================================================
 	// Brightness
@@ -291,9 +292,9 @@ binds {
 
 	XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
 	XF86AudioPause       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-	XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-	XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-	XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+	XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop";       }
+	XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous";   }
+	XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next";       }
 
 	//================================================================================
 	// Mouse Wheel
