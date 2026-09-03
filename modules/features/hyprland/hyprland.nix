@@ -23,7 +23,16 @@
                 pkgs.xdg-desktop-portal-gtk 
                 pkgs.xdg-desktop-portal-hyprland
             ];
-			config.hyprland.default = [ "hyprland" "gtk" ];
+
+            config = {
+                common = {
+                    default = [ "gtk" ];
+                };
+                hyprland = {
+                    default = [ "hyprland" "gtk" ];
+                };
+            };
+
 		};
 
         # Stable, colon-free device symlinks for AQ_DRM_DEVICES — card0/card1
