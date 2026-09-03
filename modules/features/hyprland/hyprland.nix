@@ -11,6 +11,15 @@
 		# add the hyprwm/Hyprland flake input and set programs.hyprland.package.
 		programs.hyprland.enable = true;
 
+        # xdg-desktop-portal-hyprland doesn't implement the Settings (appearance/
+		# color-scheme) interface Noctalia's dark-mode toggle and Brave's "follow
+		# system theme" both rely on — fall back to the GTK portal for that.
+		xdg.portal = {
+			enable = true;
+			extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+			config.hyprland.default = [ "hyprland" "gtk" ];
+		};
+
         # Stable, colon-free device symlinks for AQ_DRM_DEVICES — card0/card1
 		# numbering isn't guaranteed stable across boots, and by-path names
 		# contain colons that collide with AQ_DRM_DEVICES's ":" separator.
