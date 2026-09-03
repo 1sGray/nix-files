@@ -209,6 +209,7 @@
 		# environment.systemPackages = pkgs.;
 
 		programs.xwayland.enable = true;
+        programs.dconf.enable = true;
 
 #=====================================================================================================
 # Inputs

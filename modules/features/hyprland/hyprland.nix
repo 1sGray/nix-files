@@ -9,14 +9,20 @@
 		# Uses Hyprland's Lua config (hyprland.lua), shipped in Hyprland 0.55+.
 		# If your pinned nixpkgs' pkgs.hyprland predates that, bump nixpkgs or
 		# add the hyprwm/Hyprland flake input and set programs.hyprland.package.
-		programs.hyprland.enable = true;
+		programs.hyprland = {
+            enable = true;
+            withUWSM = true;
+        };
 
         # xdg-desktop-portal-hyprland doesn't implement the Settings (appearance/
 		# color-scheme) interface Noctalia's dark-mode toggle and Brave's "follow
 		# system theme" both rely on — fall back to the GTK portal for that.
 		xdg.portal = {
 			enable = true;
-			extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+			extraPortals = [ 
+                pkgs.xdg-desktop-portal-gtk 
+                pkgs.xdg-desktop-portal-hyprland
+            ];
 			config.hyprland.default = [ "hyprland" "gtk" ];
 		};
 
@@ -42,6 +48,7 @@
             "autostart.lua"
             "scrollingLayout.lua"
             "devices.lua"
+            "session.lua"
 		];
 	};
 }
