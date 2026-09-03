@@ -31,6 +31,11 @@
 
     nix-crab.url = "github:ItszFinn/nix-crab";
 
+    noctalia-greeter = {
+        url = "github:noctalia-dev/noctalia-greeter";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   # import modules/ automatically

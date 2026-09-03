@@ -8,6 +8,7 @@
             machineHardware
             niri
             noctalia
+            noctaliaGreeter
             zram
             ananicy
             scx
