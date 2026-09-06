@@ -14,6 +14,7 @@
             withUWSM = true;
         };
 
+
         # xdg-desktop-portal-hyprland doesn't implement the Settings (appearance/
 		# color-scheme) interface Noctalia's dark-mode toggle and Brave's "follow
 		# system theme" both rely on — fall back to the GTK portal for that.

@@ -56,6 +56,8 @@ cmp.setup({
 
 require("mini.indentscope").setup()
 require("mini.align").setup()
+-- require("mini.animate").setup()
+require("mini.splitjoin").setup()
 
 -- =======================================================================================
 -- LSPs
@@ -139,6 +141,17 @@ vim.opt.cmdheight = 2         -- number of lines used for the command-line
 vim.opt.winborder = "rounded"
 vim.opt.signcolumn = "yes"
 
+-- List Mode
+vim.opt.list = true           -- Enable list mode globally
+vim.opt.listchars = {
+    nbsp = "␣",  -- Non-breaking space
+    -- eol = "↲",   -- End of line
+    tab = "»\\ ", -- Tab character
+    trail = "•", -- Trailing spaces
+    -- extends = "›", -- Overflow to right
+    -- precedes = "‹", -- Overflow to left
+}
+
 -- Line Number ===========================================================================
 
 vim.opt.number = true         -- Enable Line Numbers
@@ -184,8 +197,19 @@ vim.g.maplocalleader = " "-- Set leader locally, Prefered:<Space>
 
 vim.keymap.set("n", "<leader>to", function() vim.opt.scrolloff = 999 - vim.o.scrolloff end,
   { desc = "A toggle that sets scroll offset super high which keeps your cursor at the middle of the screen and scrolls the content around it" })
+
 vim.keymap.set("n", "<leader>cu", ":update<CR> :source<CR>", { desc = "Updates current file and sources it, mainly nvim config files." })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Writes buffer to file." })
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Formats a buffer using the attached LSP" })
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "exits to normal mode in the terminal" })
 
+-- Diagnostics ===========================================================================
+-- Jump between diagnostics
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+
+-- Show the diagnostic under the cursor in a floating window
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagnostic" })
+
+-- Send all diagnostics to the location list (quickfix-style)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Diagnostics to loclist" })

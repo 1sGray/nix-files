@@ -41,21 +41,41 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exit(), { description = "Quit Hyprland
 -- Noctalia
 --================================================================================
 
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(ipc .. "launcher toggle"), { description = "Toggle Noctalia Launcher" } )
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. "controlCenter toggle"), { description = "Toggle Noctalia Control Center" } )
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(ipc .. "settings toggle"), { description = "Toggle Noctalia Settings" } )
-hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "windowSwitcher toggle"), { description = "Open Noctalia's Window Switcher" } )
-hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(ipc .. "lockScreen lock"), { description = "Lock the current session" } )
-hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(ipc .. "sessionMenu toggle"), { description = "Open Session Menu" } )
-hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd(ipc .. "plugin:keybind-cheatsheet toggle"), { description = "Open Keybind CheatSheet Plugin" } )
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd( "noctalia msg panel-toggle launcher" ),       { description = "Toggle Noctalia Launcher"        } )
+hl.bind(mainMod .. " + S",     hl.dsp.exec_cmd( "noctalia msg panel-toggle control-center" ), { description = "Toggle Noctalia Control Center"  } )
+hl.bind(mainMod .. " + B",     hl.dsp.exec_cmd( "noctalia msg settings-toggle" ),             { description = "Toggle Noctalia Settings"        } )
+hl.bind("ALT + Tab",           hl.dsp.exec_cmd( "noctalia msg window-switcher" ),             { description = "Open Noctalia's Window Switcher" } )
+hl.bind(mainMod .. " + X",     hl.dsp.exec_cmd( "noctalia msg session lock" ),                { description = "Lock the current session"        } )
+hl.bind(mainMod .. " + Z",     hl.dsp.exec_cmd( "noctalia msg panel-toggle session" ),        { description = "Open Session Menu"               } )
+-- hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd(ipc .. "plugin:keybind-cheatsheet toggle"), { description = "Open Keybind CheatSheet Plugin" } )
 
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume increase"), { locked = true, repeating = true }, { description = "Volume Up" } )
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume decrease"), { locked = true, repeating = true }, { description = "Volume Down" } )
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume mute"), { locked = true }, { description = "Mute" } )
+hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd( "noctalia msg volume-up" ),       { locked = true, repeating = true }, { description = "Volume Up" } )
+hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd( "noctalia msg volume-down" ),     { locked = true, repeating = true }, { description = "Volume Down" } )
+hl.bind("XF86AudioMute",         hl.dsp.exec_cmd( "noctalia msg volume-mute" ),     { locked = true },                   { description = "Mute Sound" } )
+hl.bind("XF86AudioMicMute",      hl.dsp.exec_cmd( "noctalia msg mic-mute" ),        { locked = true },                   { description = "Mute Microphone" } )
 
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness increase"), { locked = true, repeating = true }, { description = "Increase Brightness" } )
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness decrease"), { locked = true, repeating = true }, { description = "Decrease Brightness" } )
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd( "noctalia msg brightness-up" ),   { locked = true, repeating = true }, { description = "Increase Brightness" } )
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd( "noctalia msg brightness-down" ), { locked = true, repeating = true }, { description = "Decrease Brightness" } )
 
+-- --================================================================================
+-- -- Noctalia-shell
+-- --================================================================================
+--
+-- hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(ipc .. "launcher toggle"), { description = "Toggle Noctalia Launcher" } )
+-- hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. "controlCenter toggle"), { description = "Toggle Noctalia Control Center" } )
+-- hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(ipc .. "settings toggle"), { description = "Toggle Noctalia Settings" } )
+-- hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "windowSwitcher toggle"), { description = "Open Noctalia's Window Switcher" } )
+-- hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(ipc .. "lockScreen lock"), { description = "Lock the current session" } )
+-- hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(ipc .. "sessionMenu toggle"), { description = "Open Session Menu" } )
+-- hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd(ipc .. "plugin:keybind-cheatsheet toggle"), { description = "Open Keybind CheatSheet Plugin" } )
+--
+-- hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume increase"), { locked = true, repeating = true }, { description = "Volume Up" } )
+-- hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume decrease"), { locked = true, repeating = true }, { description = "Volume Down" } )
+-- hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume mute"), { locked = true }, { description = "Mute" } )
+--
+-- hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness increase"), { locked = true, repeating = true }, { description = "Increase Brightness" } )
+-- hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness decrease"), { locked = true, repeating = true }, { description = "Decrease Brightness" } )
+--
 --================================================================================
 -- Windows
 --================================================================================

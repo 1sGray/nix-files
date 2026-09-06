@@ -2,6 +2,10 @@
 	
 	flake.nixosModules.noctaliaGreeter = { pkgs, lib, ... }: {
 
+        imports = [
+            inputs.noctalia-greeter.nixosModules.default
+        ];
+
         programs.noctalia-greeter = {
             enable = true;
             # Optional: extra flags after `--` on noctalia-greeter-session

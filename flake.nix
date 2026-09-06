@@ -19,10 +19,6 @@
     };
 
     minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
-    noctalia = {
-    	url = "github:noctalia-dev/noctalia";
-        inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
-    };
 
     sls-steam = {
         url = "github:AceSLS/SLSsteam";
@@ -31,9 +27,21 @@
 
     nix-crab.url = "github:ItszFinn/nix-crab";
 
+    noctalia = {
+    	url = "github:noctalia-dev/noctalia";
+        inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
+    };
+
     noctalia-greeter = {
         url = "github:noctalia-dev/noctalia-greeter";
         inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland.url = "github:hyprwm/Hyprland"; # follows development branch of hyprland
+
+    hypr-dynamic-cursors = {
+        url = "github:VirtCode/hypr-dynamic-cursors";
+        inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
     };
 
   };

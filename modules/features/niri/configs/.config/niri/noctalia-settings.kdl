@@ -26,6 +26,6 @@ layer-rule {
 	place-within-backdrop true
 }
 
-spawn-at-startup "noctalia-shell" // Autostart Noctalia
+spawn-at-startup "noctalia" // Autostart Noctalia
 include "/home/gray/.config/niri/noctalia.kdl"
 

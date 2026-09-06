@@ -1,30 +1,39 @@
 { self, inputs, ... }: {
 
-	flake.nixosModules.noctalia = { pkgs, lib, ... }:{
+	flake.nixosModules.noctalia = { pkgs, lib, ... }: let 
 
-		environment.systemPackages = [
-			self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia
-            pkgs.noctalia-qs
-            pkgs.python3
-		];
+		#       hyprDir = "/home/${username}/.config/hypr";
+		# hyprConfigs = ./configs/.config/hypr;
+		# mkLink = name: "L+ ${hyprDir}/${name} - ${username} users - ${hyprConfigs}/${name}";
 
-		# programs.myNoctalia = {
-		# 	enable = true;
-		# };
+    in {
+
+		# environment.systemPackages = [
+		#         inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+		# ];
+
+        imports = [
+            inputs.noctalia.nixosModules.default
+        ];
+
+        programs.noctalia = {
+            enable = true;
+
+            # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
+            recommendedServices.enable = true;
+        };
+
+        nix.settings = {
+            extra-substituters = [ "https://noctalia.cachix.org" ];
+            extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+        };
+
+		#       systemd.tmpfiles.rules = [
+		# 	"d ${hyprDir} 0755 ${username} users -"
+		# ] ++ map mkLink [
+		#
+		# ];
+
 	};
 
-	perSystem = { pkgs, ... }: {
-		packages.myNoctalia = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
-			inherit pkgs;
-
-            # Still useful as the one-time seed for a fresh machine / fresh clone.
-			settings = (builtins.fromJSON (builtins.readFile ./config/noctalia.json) ).settings;
-
-            # Points NOCTALIA_CONFIG_DIR at a real, persistent, git-tracked path.
-            # Must be a genuine absolute filesystem path — not a Nix path literal —
-            # since the whole point is that it's NOT copied into the store.
-            outOfStoreConfig = "/home/gray/nix-files/modules/features/noctalia/config";
-
-		};
-	};
 }

@@ -1,0 +1,535 @@
+{
+  "cheatsheetData": [
+    {
+      "title": "Other",
+      "binds": [
+        {
+          "keys": "Super + RETURN",
+          "desc": "Open Kityy Terminal",
+          "bindId": "|64|Return|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Return",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + E",
+          "desc": "Properly Quit Hyprland",
+          "bindId": "|64|E|000|__lua",
+          "undescribed": false,
+          "_mainKey": "E",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Shift + E",
+          "desc": "Quit Hyprland",
+          "bindId": "|65|E|000|__lua",
+          "undescribed": false,
+          "_mainKey": "E",
+          "_mods": "Super+Shift",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + SPACE",
+          "desc": "Toggle Noctalia Launcher",
+          "bindId": "|64|Space|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Space",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + S",
+          "desc": "Toggle Noctalia Control Center",
+          "bindId": "|64|S|000|__lua",
+          "undescribed": false,
+          "_mainKey": "S",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + B",
+          "desc": "Toggle Noctalia Settings",
+          "bindId": "|64|B|000|__lua",
+          "undescribed": false,
+          "_mainKey": "B",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Alt + TAB",
+          "desc": "Open Noctalia's Window Switcher",
+          "bindId": "|8|Tab|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Tab",
+          "_mods": "Alt",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + X",
+          "desc": "Lock the current session",
+          "bindId": "|64|X|000|__lua",
+          "undescribed": false,
+          "_mainKey": "X",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Z",
+          "desc": "Open Session Menu",
+          "bindId": "|64|Z|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Z",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + GRAVE",
+          "desc": "Open Keybind CheatSheet Plugin",
+          "bindId": "|64|grave|000|__lua",
+          "undescribed": false,
+          "_mainKey": "grave",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Q",
+          "desc": "Send a graceful request to close the window",
+          "bindId": "|64|Q|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Q",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Shift + Q",
+          "desc": "Kill the process owning the window with a SIGKILL",
+          "bindId": "|65|Q|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Q",
+          "_mods": "Super+Shift",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + V",
+          "desc": "Tile or Float Focused Window",
+          "bindId": "|64|V|000|__lua",
+          "undescribed": false,
+          "_mainKey": "V",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + M",
+          "desc": "Maximize Window",
+          "bindId": "|64|M|000|__lua",
+          "undescribed": false,
+          "_mainKey": "M",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + F",
+          "desc": "Fullscreen Window",
+          "bindId": "|64|F|000|__lua",
+          "undescribed": false,
+          "_mainKey": "F",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + C",
+          "desc": "Center Window",
+          "bindId": "|64|C|000|__lua",
+          "undescribed": false,
+          "_mainKey": "C",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + LEFT",
+          "desc": "Focus Window Left",
+          "bindId": "|64|Left|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Left",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + RIGHT",
+          "desc": "Focus Window Right",
+          "bindId": "|64|Right|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Right",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + UP",
+          "desc": "Focus Window Up",
+          "bindId": "|64|Up|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Up",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + DOWN",
+          "desc": "Focus Window Down",
+          "bindId": "|64|Down|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Down",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + H",
+          "desc": "Focus Window Left",
+          "bindId": "|64|H|000|__lua",
+          "undescribed": false,
+          "_mainKey": "H",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + J",
+          "desc": "Focus Window Down",
+          "bindId": "|64|J|000|__lua",
+          "undescribed": false,
+          "_mainKey": "J",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + K",
+          "desc": "Focus Window Up",
+          "bindId": "|64|K|000|__lua",
+          "undescribed": false,
+          "_mainKey": "K",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + L",
+          "desc": "Focus Window Right",
+          "bindId": "|64|L|000|__lua",
+          "undescribed": false,
+          "_mainKey": "L",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + LEFT",
+          "desc": "Move Window Left",
+          "bindId": "|68|Left|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Left",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + RIGHT",
+          "desc": "Move Window Right",
+          "bindId": "|68|Right|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Right",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + UP",
+          "desc": "Move Window Up",
+          "bindId": "|68|Up|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Up",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + DOWN",
+          "desc": "Move Window Down",
+          "bindId": "|68|Down|000|__lua",
+          "undescribed": false,
+          "_mainKey": "Down",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + H",
+          "desc": "Move Window Left",
+          "bindId": "|68|H|000|__lua",
+          "undescribed": false,
+          "_mainKey": "H",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + J",
+          "desc": "Move Window Down",
+          "bindId": "|68|J|000|__lua",
+          "undescribed": false,
+          "_mainKey": "J",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + K",
+          "desc": "Move Window Up",
+          "bindId": "|68|K|000|__lua",
+          "undescribed": false,
+          "_mainKey": "K",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + L",
+          "desc": "Move Window Right",
+          "bindId": "|68|L|000|__lua",
+          "undescribed": false,
+          "_mainKey": "L",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 1",
+          "desc": "Move Window to Workspace1",
+          "bindId": "|68|1|000|__lua",
+          "undescribed": false,
+          "_mainKey": "1",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 2",
+          "desc": "Move Window to Workspace2",
+          "bindId": "|68|2|000|__lua",
+          "undescribed": false,
+          "_mainKey": "2",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 3",
+          "desc": "Move Window to Workspace3",
+          "bindId": "|68|3|000|__lua",
+          "undescribed": false,
+          "_mainKey": "3",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 4",
+          "desc": "Move Window to Workspace4",
+          "bindId": "|68|4|000|__lua",
+          "undescribed": false,
+          "_mainKey": "4",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 5",
+          "desc": "Move Window to Workspace5",
+          "bindId": "|68|5|000|__lua",
+          "undescribed": false,
+          "_mainKey": "5",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 6",
+          "desc": "Move Window to Workspace6",
+          "bindId": "|68|6|000|__lua",
+          "undescribed": false,
+          "_mainKey": "6",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 7",
+          "desc": "Move Window to Workspace7",
+          "bindId": "|68|7|000|__lua",
+          "undescribed": false,
+          "_mainKey": "7",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 8",
+          "desc": "Move Window to Workspace8",
+          "bindId": "|68|8|000|__lua",
+          "undescribed": false,
+          "_mainKey": "8",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Ctrl + 9",
+          "desc": "Move Window to Workspace9",
+          "bindId": "|68|9|000|__lua",
+          "undescribed": false,
+          "_mainKey": "9",
+          "_mods": "Super+Ctrl",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + MINUS",
+          "desc": "Increase Window Width by 10px",
+          "bindId": "|64|minus|000|__lua",
+          "undescribed": false,
+          "_mainKey": "minus",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Shift + MINUS",
+          "desc": "Decrease Window Width by 10px",
+          "bindId": "|65|minus|000|__lua",
+          "undescribed": false,
+          "_mainKey": "minus",
+          "_mods": "Super+Shift",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + EQUAL",
+          "desc": "Increase Window Height by 10px",
+          "bindId": "|64|equal|000|__lua",
+          "undescribed": false,
+          "_mainKey": "equal",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Shift + EQUAL",
+          "desc": "Decrease Window Height by 10px",
+          "bindId": "|65|equal|000|__lua",
+          "undescribed": false,
+          "_mainKey": "equal",
+          "_mods": "Super+Shift",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + 1-9",
+          "desc": "Change Focus to Window 1-9",
+          "_verb": "",
+          "_mods": "Super",
+          "_mainKey": "1-9",
+          "_merged": true
+        }
+      ]
+    },
+    {
+      "title": "Without Description",
+      "binds": [
+        {
+          "keys": "Vol Up",
+          "desc": "",
+          "bindId": "|0|XF86AudioRaiseVolume|000|__lua",
+          "undescribed": true,
+          "_mainKey": "XF86AudioRaiseVolume",
+          "_mods": "",
+          "_verb": ""
+        },
+        {
+          "keys": "Vol Down",
+          "desc": "",
+          "bindId": "|0|XF86AudioLowerVolume|000|__lua",
+          "undescribed": true,
+          "_mainKey": "XF86AudioLowerVolume",
+          "_mods": "",
+          "_verb": ""
+        },
+        {
+          "keys": "Mute",
+          "desc": "",
+          "bindId": "|0|XF86AudioMute|000|__lua",
+          "undescribed": true,
+          "_mainKey": "XF86AudioMute",
+          "_mods": "",
+          "_verb": ""
+        },
+        {
+          "keys": "Bright Up",
+          "desc": "",
+          "bindId": "|0|XF86MonBrightnessUp|000|__lua",
+          "undescribed": true,
+          "_mainKey": "XF86MonBrightnessUp",
+          "_mods": "",
+          "_verb": ""
+        },
+        {
+          "keys": "Bright Down",
+          "desc": "",
+          "bindId": "|0|XF86MonBrightnessDown|000|__lua",
+          "undescribed": true,
+          "_mainKey": "XF86MonBrightnessDown",
+          "_mods": "",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Left Click",
+          "desc": "",
+          "bindId": "|64|mouse:272|000|__lua",
+          "undescribed": true,
+          "_mainKey": "mouse:272",
+          "_mods": "Super",
+          "_verb": ""
+        },
+        {
+          "keys": "Super + Right Click",
+          "desc": "",
+          "bindId": "|64|mouse:273|000|__lua",
+          "undescribed": true,
+          "_mainKey": "mouse:273",
+          "_mods": "Super",
+          "_verb": ""
+        }
+      ]
+    }
+  ],
+  "detectedCompositor": "hyprland",
+  "windowWidth": 1400,
+  "windowHeight": 850,
+  "autoHeight": true,
+  "columnCount": 3,
+  "modKeyVariable": "$mod",
+  "hyprlandConfigPath": "~/.config/hypr/hyprland.conf",
+  "hyprlandLuaConfigPath": "~/.config/hypr/hyprland.lua",
+  "hyprlandParserMode": "lua",
+  "niriConfigPath": "~/nix-files/modules/features/niri/configs/.config/niri/config.kdl",
+  "mangoConfigPath": "~/.config/mango/config.conf",
+  "mergeSequentialBinds": true,
+  "showUndescribedBinds": true,
+  "splitLargeWorkspaceCategory": true,
+  "workspaceSplitThreshold": 12,
+  "keyColorAlt": "#FF6B6B",
+  "keyColorXF86": "#4ECDC4",
+  "keyColorPrint": "#95E1D3",
+  "keyColorNumeric": "#A8DADC",
+  "keyColorMouse": "#F38181",
+  "keyColorSuper": "",
+  "keyColorCtrl": "",
+  "keyColorShift": "",
+  "keyColorDefault": "#6C757D",
+  "keyLabelColor": "#FFFFFF",
+  "keyTextSuper": "",
+  "keyTextCtrl": "",
+  "keyTextShift": "",
+  "keyTextAlt": "",
+  "keyTextXF86": "",
+  "keyTextPrint": "",
+  "keyTextNumeric": "",
+  "keyTextMouse": "",
+  "keyTextDefault": "",
+  "keyColorMod2": "",
+  "keyColorMod3": "",
+  "keyColorMod5": "",
+  "keyTextMod2": "",
+  "keyTextMod3": "",
+  "keyTextMod5": "",
+  "keyLabelMod2": "",
+  "keyLabelMod3": "",
+  "keyLabelMod5": "",
+  "descriptionTextColor": "",
+  "bindOverrides": {}
+}

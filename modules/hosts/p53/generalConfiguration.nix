@@ -8,6 +8,7 @@
             machineHardware
             niri
             noctalia
+            noctalia-shell
             noctaliaGreeter
             zram
             ananicy
@@ -52,6 +53,7 @@
 			# packages = with pkgs; [];
 			shell = self.packages.${pkgs.stdenv.hostPlatform.system}.myZsh;
 		};
+
 
 
 #=====================================================================================================
