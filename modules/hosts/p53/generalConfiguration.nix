@@ -10,6 +10,7 @@
             noctalia
             noctalia-shell
             noctaliaGreeter
+            caelestiaShell
             zram
             ananicy
             scx

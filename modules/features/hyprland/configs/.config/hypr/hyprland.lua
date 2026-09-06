@@ -16,5 +16,7 @@ require("scrollingLayout")
 
 require("window-rules")
 require("graphics")
-require("noctalia")
+-- require("noctalia")
+require("noctalia-shell")
+-- require("caelestia")
 -- require("session")

@@ -55,6 +55,8 @@
 			"window-rules.lua"
 			"keybinds.lua"
 			"noctalia.lua"
+			"noctalia-shell.lua"
+            "caelestia.lua"
             "autostart.lua"
             "scrollingLayout.lua"
             "devices.lua"
