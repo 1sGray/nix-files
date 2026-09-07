@@ -1,1 +1,9 @@
 # Empty = yazi's built-in defaults apply. Add prepend_keymap/keymap blocks here.
+[[mgr.prepend_keymap]]
+on  = "M"
+run = "plugin mount"
+
+[[mgr.prepend_keymap]]
+on = ["C"]
+run = "plugin ouch"
+desc = "Compress with ouch"
