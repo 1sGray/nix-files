@@ -3,7 +3,9 @@
 	flake.nixosModules.nixCrabSteam = { pkgs, lib, username, ... }: {
 
         imports = [ inputs.nix-crab.nixosModules.default ];
+
         programs.nix-crab.slssteam.enable = true;
+        programs.nix-crab.slssteam-moon.enable = true;
 
         # programs.nix-crab.millennium = {
         #     enable = false;      # optional

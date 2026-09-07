@@ -20,6 +20,9 @@ vim.pack.add({ -- Plugin Repos
   { src = "https://github.com/tris203/precognition.nvim" },
   { src = "https://github.com/nvim-mini/mini.nvim" },
   { src = "https://github.com/RRethy/base16-nvim" },
+  { src = "https://github.com/nvim-telescope/telescope.nvim" },
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 })
 
 -- Treesitter ============================================================================
@@ -47,10 +50,51 @@ cmp.setup({
 --   fuzzy = { implementation = "lua" },
 -- })
 --
--- precognition =============================================================================
+-- precognition ==========================================================================
 
 -- require("precognition").setup({})
 
+-- Telescope ==========================================================================
+
+-- Compile native extensions when the pack changes
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(ev)
+    if ev.data.spec.name == 'telescope-fzf-native.nvim' then
+      local res = vim.system({ 'make' }, { cwd = ev.data.path })
+      if vim.v.shell_error ~= 0 then
+        vim.notify('Failed to compile telescope-fzf-native.nvim', vim.log.levels.ERROR)
+      else
+        vim.notify('Successfully compiled telescope-fzf-native.nvim', vim.log.levels.INFO)
+      end
+    end
+  end,
+})
+
+-- Configure Telescope
+local ts = require('telescope')
+ts.setup({
+
+  defaults = {
+    -- Your telescope configuration
+  },
+
+})
+
+-- Keymaps
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+-- vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Telescope find files' })
+-- vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Telescope live grep' })
+-- vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Telescope buffers' })
+-- vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Telescope help tags' })
+
+-- vim.keymap.set('n', "<leader>ff",":Telescope find_files<CR>", { desc = 'Telescope find files' })
+-- vim.keymap.set('n', "<leader>fg",":Telescope live_grep<CR>", { desc = 'Telescope live grep' })
+-- vim.keymap.set('n', "<leader>fb",":Telescope buffers<CR>", { desc = 'Telescope buffers' })
+-- vim.keymap.set('n', "<leader>fh",":Telescope help_tags<CR>", { desc = 'Telescope help tags' })
 
 -- mini.nvim =============================================================================
 
@@ -63,11 +107,7 @@ require("mini.splitjoin").setup()
 -- LSPs
 -- =======================================================================================
 
-vim.lsp.enable({
-  "lua_ls",
-  "rust_analyzer",
-  "nixd",
-})
+vim.lsp.enable({"lua_ls", "rust_analyzer", "nixd",})
 
 -- Diagnostics ===========================================================================
 
