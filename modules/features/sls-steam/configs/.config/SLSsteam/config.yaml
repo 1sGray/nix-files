@@ -36,7 +36,10 @@ AppIds:
 #AppIds on this list will automatically get added to your AppIds setting aswell, but only for the initial check.
 #It will get ignored in exclusion checks for the parent AppId
 AdditionalApps:
+  - 4108000
   - 1966720
+  - 3241660
+  - 1217060
 
 #Extra Data for Dlcs belonging to a specific AppId. Only needed
 #when the App you're playing is hit by Steams 64 DLC limit
@@ -145,4 +148,21 @@ LogLevels: 0xff
 DumpClientInterfaces: no
 
 #Logs all calls to Steamworks (this makes the logfile huge! Only useful for debugging/analyzing
+ExtendedLogging: no
+FakeName: ""
+FakeEmail: ""
+FakeWalletBalance: 0
+DisableFamilyShareLock: yes
+UseWhitelist: no
+DisableCloud: yes
+DisableUpdates: yes
+SteamIdOverride:
+MaxSchemaTries: 10
+SafeMode: no
+WarnHashMissmatch: no
+Notifications: yes
+NotifyInit: yes
+API: no
+LogLevel: 2
+DumpClientInterfaces: no
 ExtendedLogging: no

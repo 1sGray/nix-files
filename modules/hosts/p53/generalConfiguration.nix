@@ -34,10 +34,10 @@
             syncthing
 
             # Steam Stuff ============================================================================
-            # steam
+            steam
             gamescope
             mangohud
-            nixCrabSteam
+            # nixCrabSteam
 
         ];
 
@@ -69,19 +69,20 @@
             # GUI Apps ===============================================================================
             obsidian
             discord
-			brave
+            brave
+            inputs.accela
 
             # Services ===============================================================================
             keepassxc
             udiskie # udisks2 frontend
-			xwayland-satellite
-            
+            xwayland-satellite
+
             # TUI Apps ===============================================================================
             bottom
 
             # Cli Tools ==============================================================================
-			wget
-			git
+            wget
+            git
 
             ffmpeg
             poppler
@@ -95,7 +96,7 @@
             # The enhancements
             eza # better ls
             fd # better find
-			ripgrep # better grep
+            ripgrep # better grep
             bat # better cat
             zoxide # better cd
 

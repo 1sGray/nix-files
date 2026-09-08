@@ -49,6 +49,8 @@
         inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
     };
 
+    accela.url = "github:ciscosweater/enter-the-wired";
+
   };
 
   # import modules/ automatically

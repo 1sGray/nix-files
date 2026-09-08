@@ -1,11 +1,20 @@
 { self, inputs, ... }: {
-	
-	flake.nixosModules.nixCrabSteam = { pkgs, lib, username, ... }: {
+
+    flake.nixosModules.nixCrabSteam = { pkgs, lib, username, ... }: {
 
         imports = [ inputs.nix-crab.nixosModules.default ];
 
-        programs.nix-crab.slssteam.enable = true;
-        programs.nix-crab.slssteam-moon.enable = true;
+        programs.nix-crab.slssteam = {
+            enable = true;
+            extraEnv = {
+                __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+                __NV_PRIME_RENDER_OFFLOAD = "1";
+                __NV_PRIME_RENDER_OFFLOAD_PROVIDER = "NVIDIA-G0";
+                __VK_LAYER_NV_optimus = "NVIDIA_only";
+            };
+        };
+        # programs.nix-crab.slssteam-moon.enable = true;
+        programs.nix-crab.cloudredirect.enable = true;
 
         # programs.nix-crab.millennium = {
         #     enable = false;      # optional
@@ -32,8 +41,6 @@
 
         };
 
-        
-
         systemd.tmpfiles.rules = [
             # Create the SLSsteam config directory if missing
             "d /home/${username}/.config/SLSsteam 0755 ${username} users -"
@@ -43,6 +50,6 @@
         ];
 
     };
-	# perSystem = { pkg , lib, ... }: {};
+
 }
 
