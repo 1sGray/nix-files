@@ -34,10 +34,11 @@
             syncthing
 
             # Steam Stuff ============================================================================
-            steam
+            # steam
             gamescope
             mangohud
-            # nixCrabSteam
+            nixCrabSteam
+            accela
 
         ];
 
@@ -70,7 +71,6 @@
             obsidian
             discord
             brave
-            inputs.accela
 
             # Services ===============================================================================
             keepassxc
@@ -113,6 +113,9 @@
 
 		
 		nixpkgs.config.allowUnfree = true; # Allow unfree packages
+
+        # Flatpacks ===================================================================================
+        services.flatpak.enable = true;
 
 #=====================================================================================================
 # Bootloader

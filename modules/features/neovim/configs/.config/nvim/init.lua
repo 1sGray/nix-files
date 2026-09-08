@@ -15,7 +15,7 @@ vim.pack.add({ -- Plugin Repos
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/Saghen/blink.cmp"},
   { src = "https://github.com/Saghen/blink.lib" }, 
-  -- { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/neovim/nvim-lspconfig" },
   -- { src = "https://github.com/ellisonleao/gruvbox.nvim" },
   { src = "https://github.com/tris203/precognition.nvim" },
   { src = "https://github.com/nvim-mini/mini.nvim" },
@@ -107,6 +107,7 @@ require("mini.splitjoin").setup()
 -- LSPs
 -- =======================================================================================
 
+-- Native Vim LSP ================================================================================
 vim.lsp.enable({"lua_ls", "rust_analyzer", "nixd",})
 
 -- Diagnostics ===========================================================================
@@ -125,18 +126,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.cmd("set completeopt+=noselect") -- Stops inputting the first selected option automatically
-
--- lua_ls ================================================================================
---require "lspconfig".lua_ls.setup {}
--- rust-analyzer =========================================================================
---require "lspconfig".rust_analyzer.setup({
---  capabilities = capabilities,
---  on_attach = on_attach,
---  cmd = {
---    "rustup", "run", "stable", "rust-analyzer",
---  }
---})
--- 
 
 -- =======================================================================================
 -- Options

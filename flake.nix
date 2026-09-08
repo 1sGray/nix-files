@@ -49,7 +49,7 @@
         inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
     };
 
-    accela.url = "github:ciscosweater/enter-the-wired";
+    enter-the-wired.url = "github:ciscosweater/enter-the-wired";
 
   };
 
