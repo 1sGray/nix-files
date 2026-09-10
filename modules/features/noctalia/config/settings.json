@@ -130,8 +130,8 @@
                 {
                     "clockColor": "none",
                     "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
-                    "formatVertical": "hh : mm  AP - dd MM ddd",
+                    "formatHorizontal": "hh:mmAP (ss) - ddd, MMM dd",
+                    "formatVertical": "AP -- hh - mm - [:ss]  ---  dd/MM -- ddd",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": false
@@ -323,7 +323,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Espresso Cream",
+        "predefinedScheme": "Hexa34C",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false

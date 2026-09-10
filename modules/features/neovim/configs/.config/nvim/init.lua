@@ -10,7 +10,6 @@
 -- =======================================================================================
 -- Plugins
 -- =======================================================================================
-
 vim.pack.add({ -- Plugin Repos
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/Saghen/blink.cmp"},
@@ -23,10 +22,13 @@ vim.pack.add({ -- Plugin Repos
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
   { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+  {
+    src = "https://github.com/obsidian-nvim/obsidian.nvim",
+    version = vim.version.range "*", -- use latest release, remove to use latest commit
+  },
 })
 
 -- Treesitter ============================================================================
-
 require("nvim-treesitter").setup({
 
   ensure_installed = {
@@ -51,11 +53,9 @@ cmp.setup({
 -- })
 --
 -- precognition ==========================================================================
-
 -- require("precognition").setup({})
 
 -- Telescope ==========================================================================
-
 -- Compile native extensions when the pack changes
 vim.api.nvim_create_autocmd('PackChanged', {
   callback = function(ev)
@@ -75,33 +75,43 @@ local ts = require('telescope')
 ts.setup({
 
   defaults = {
-    -- Your telescope configuration
+      -- layout_strategy = "center",
+      border = true,
+      borderchars = {
+          prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+          results = { "─", "│", "─", "│", "│", "│", "│", "│" },
+          preview = { "─", "│", "─", "│", "╭", "╮", "│", "│" }
+      },
   },
 
 })
 
 -- Keymaps
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
--- vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Telescope find files' })
--- vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Telescope live grep' })
--- vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Telescope buffers' })
--- vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Telescope help tags' })
-
--- vim.keymap.set('n', "<leader>ff",":Telescope find_files<CR>", { desc = 'Telescope find files' })
--- vim.keymap.set('n', "<leader>fg",":Telescope live_grep<CR>", { desc = 'Telescope live grep' })
--- vim.keymap.set('n', "<leader>fb",":Telescope buffers<CR>", { desc = 'Telescope buffers' })
--- vim.keymap.set('n', "<leader>fh",":Telescope help_tags<CR>", { desc = 'Telescope help tags' })
+config = function ()
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope help tags' })
+end
 
 -- mini.nvim =============================================================================
-
 require("mini.indentscope").setup()
 require("mini.align").setup()
 -- require("mini.animate").setup()
 require("mini.splitjoin").setup()
+require("mini.icons").setup()
+
+-- Obsidian.nvim =============================================================================
+require("obsidian").setup {
+  legacy_commands = false, -- this will be removed in 4.0.0
+  workspaces = {
+    {
+      name = "A's brain",
+      path = "~/Documents/Obsidian/Amins Second Brain/As Brain",
+    },
+  },
 
 -- =======================================================================================
 -- LSPs
