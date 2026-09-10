@@ -104,7 +104,7 @@ require("mini.splitjoin").setup()
 require("mini.icons").setup()
 
 -- Obsidian.nvim =============================================================================
-require("obsidian").setup {
+require("obsidian").setup({
   legacy_commands = false, -- this will be removed in 4.0.0
   workspaces = {
     {
@@ -112,7 +112,7 @@ require("obsidian").setup {
       path = "~/Documents/Obsidian/Amins Second Brain/As Brain",
     },
   },
-
+})
 -- =======================================================================================
 -- LSPs
 -- =======================================================================================
