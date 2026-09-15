@@ -323,7 +323,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Hexa34C",
+        "predefinedScheme": "Jiva Paper",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
@@ -715,10 +715,6 @@
             },
             {
                 "enabled": true,
-                "id": "kitty"
-            },
-            {
-                "enabled": true,
                 "id": "discord"
             },
             {
@@ -736,6 +732,10 @@
             {
                 "enabled": true,
                 "id": "hyprland"
+            },
+            {
+                "enabled": true,
+                "id": "kitty"
             }
         ],
         "enableUserTheming": true

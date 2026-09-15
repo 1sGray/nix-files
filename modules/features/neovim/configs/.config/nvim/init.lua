@@ -26,6 +26,7 @@ vim.pack.add({ -- Plugin Repos
     src = "https://github.com/obsidian-nvim/obsidian.nvim",
     version = vim.version.range "*", -- use latest release, remove to use latest commit
   },
+  { src = "https://github.com/abdul-hamid-achik/keymaps.nvim" },
 })
 
 -- Treesitter ============================================================================
@@ -86,16 +87,6 @@ ts.setup({
 
 })
 
--- Keymaps
-config = function ()
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope help tags' })
-end
-
 -- mini.nvim =============================================================================
 require("mini.indentscope").setup()
 require("mini.align").setup()
@@ -113,6 +104,10 @@ require("obsidian").setup({
     },
   },
 })
+
+-- Keymaps.nvim =============================================================================
+require("keymaps").setup()
+
 -- =======================================================================================
 -- LSPs
 -- =======================================================================================
@@ -224,7 +219,7 @@ vim.opt.expandtab = true      -- expand <Tab> to spaces in Insert modes
 vim.opt.smartindent = true    -- do clever indenting
 
 -- Folding ===============================================================================
---
+
 vim.opt.foldmethod = "marker"
 
 -- =======================================================================================
@@ -242,7 +237,22 @@ vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Writes buffer to file." })
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Formats a buffer using the attached LSP" })
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "exits to normal mode in the terminal" })
 
+
+-- Telescope ===========================================================================
+--
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', "<leader>ff", builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', "<leader>fg", builtin.live_grep,  { desc = 'Telescope live grep'  })
+vim.keymap.set('n', "<leader>fb", builtin.buffers,    { desc = 'Telescope buffers'    })
+vim.keymap.set('n', "<leader>fh", builtin.help_tags,  { desc = 'Telescope help tags'  })
+vim.keymap.set('n', "<leader>fc", builtin.command_history,    { desc = 'Telescope help tags'  })
+
+-- Keymaps.nvim ===========================================================================
+--
+vim.keymap.set('n', "<leader>?", "<cmd>Keymaps<cr>", { desc = "Show Keymaps" })
+
 -- Diagnostics ===========================================================================
+
 -- Jump between diagnostics
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next diagnostic" })
