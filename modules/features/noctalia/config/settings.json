@@ -131,7 +131,7 @@
                     "clockColor": "none",
                     "customFont": "",
                     "formatHorizontal": "hh:mmAP (ss) - ddd, MMM dd",
-                    "formatVertical": "AP -- hh - mm - [:ss]  ---  dd/MM -- ddd",
+                    "formatVertical": "AP -- hh  mm  [:ss]  ---  dd/MM -- ddd",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": false
@@ -323,7 +323,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Jiva Paper",
+        "predefinedScheme": "Kanagawa",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
