@@ -10,6 +10,7 @@
             "d /home/${username}/.config/nvim/lua 0755 ${username} users -"
             "L+ /home/${username}/.config/nvim/init.lua - - - - ${./configs/.config/nvim/init.lua}"
             "L+ /home/${username}/.config/nvim/lua/matugen-template.lua - - - - ${./configs/.config/nvim/lua/matugen-template.lua}"
+            "L+ /home/${username}/.config/nvim/lua/config - - - - ${./configs/.config/nvim/lua/config}"
         ];
 
 	};
