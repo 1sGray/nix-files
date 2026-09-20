@@ -26,6 +26,11 @@
     };
 
     nix-crab.url = "github:ItszFinn/nix-crab";
+    
+    freesmlauncher = {
+      url = "github:FreesmTeam/FreesmLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     noctalia = {
     	url = "github:noctalia-dev/noctalia";

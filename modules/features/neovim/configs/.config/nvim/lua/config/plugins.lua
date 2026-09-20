@@ -128,6 +128,9 @@ miniclue.setup({
 
         -- `z` key
         { mode = { 'n', 'x' }, keys = 'z' },
+
+        -- `s` key
+        { mode = { 'n', 'x' }, keys = 's' },
     },
 
     clues = {
@@ -165,7 +168,11 @@ require("obsidian").setup({
 require("tabout").setup()
 
 -- Treesitter ============================================================================
-require("boolean-toggle").setup()
+require("boolean-toggle").setup({
+    keymaps = {
+        toggle = "<CR>", -- Toggle on Enter
+    },
+})
 -- Keymaps.nvim =============================================================================
 require("keymaps").setup()
 
