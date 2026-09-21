@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "apiUrl": "",
+  "apiKey": "SekKmbEPsPgfz6f6DZaSsM5QVkfroonY",
+  "configPath": "",
+  "verifyTls": false,
+  "pollIntervalMs": 10000,
+  "folderIds": []
+}
