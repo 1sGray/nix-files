@@ -41,6 +41,7 @@
             nixCrabSteam
             accela
             freesmLauncher
+            lutris
 
             # Progamming Languages ===================================================================
             rust

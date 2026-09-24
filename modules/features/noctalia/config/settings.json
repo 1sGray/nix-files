@@ -79,19 +79,6 @@
         "widgets": {
             "center": [
                 {
-                    "defaultSettings": {
-                        "catColor": "default",
-                        "catOffsetY": 0,
-                        "catSize": 1,
-                        "idleTimeout": 150,
-                        "raveMode": false,
-                        "tappyMode": false,
-                        "useMprisFilter": false,
-                        "waitingTimeout": 30000
-                    },
-                    "id": "plugin:slowbongo"
-                },
-                {
                     "characterCount": 2,
                     "colorizeIcons": false,
                     "emptyColor": "secondary",
@@ -290,7 +277,44 @@
                     "useDistroLogo": false
                 },
                 {
+                    "defaultSettings": {
+                        "apiKey": "",
+                        "apiUrl": "",
+                        "configPath": "",
+                        "enabled": true,
+                        "folderIds": [
+                        ],
+                        "pollIntervalMs": 10000,
+                        "verifyTls": false
+                    },
                     "id": "plugin:syncthing-status"
+                },
+                {
+                    "defaultSettings": {
+                        "activeColor": "primary",
+                        "azanFile": "azan1.mp3",
+                        "city": "London",
+                        "country": "UK",
+                        "dynamicIcon": false,
+                        "hidePrayerName": false,
+                        "hijriDayOffset": 0,
+                        "iconColor": "none",
+                        "method": 3,
+                        "playAzan": false,
+                        "school": 0,
+                        "showCountdown": true,
+                        "showElapsed": false,
+                        "showNotifications": true,
+                        "textColor": "none",
+                        "tune": false,
+                        "tuneAsr": 0,
+                        "tuneDhuhr": 0,
+                        "tuneFajr": 0,
+                        "tuneIsha": 0,
+                        "tuneMaghrib": 0,
+                        "widgetIcon": "building-mosque"
+                    },
+                    "id": "plugin:mawaqit"
                 }
             ]
         }
