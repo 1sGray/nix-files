@@ -77,6 +77,9 @@
             obsidian
             discord
             brave
+            faugus-launcher
+            vivaldi
+            vivaldi-ffmpeg-codecs
 
             # Services ===============================================================================
             keepassxc
