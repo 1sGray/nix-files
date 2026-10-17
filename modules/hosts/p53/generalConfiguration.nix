@@ -7,10 +7,10 @@
         imports = with self.nixosModules; [
             machineHardware
             niri
-            noctalia
+            # noctalia
             noctalia-shell
             noctaliaGreeter
-            caelestiaShell
+            # caelestiaShell
             zram
             ananicy
             scx
@@ -37,7 +37,7 @@
 
             # Gaming Stuff ============================================================================
             # steam
-            gamescope
+            # gamescope
             mangohud
             nixCrabSteam
             accela
