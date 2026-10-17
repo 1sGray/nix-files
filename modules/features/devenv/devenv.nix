@@ -1,8 +1,10 @@
-{ self, inputs, ... }: {
+{ ... }: {
 
-    flake.nixosModules.devenv = { }: {
+    flake.nixosModules.devenv = { pkgs, ... }: {
 
-
+        environment.systemPackages = [
+            pkgs.devenv
+        ];
 
         # systemd.tmpfiles.rules = [
         #     "d /home/${username}/.config/ADDPATH 0755 ${username} users -"
