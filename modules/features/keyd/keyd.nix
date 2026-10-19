@@ -9,7 +9,7 @@
                     ids = [ "*" ];
                     settings = {
                         main = {
-                            capslock = "overload(control, esc)";
+                            capslock = "overloadt(control, esc, 200)";
                         };
                     };
                 };
