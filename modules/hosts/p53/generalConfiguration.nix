@@ -6,7 +6,8 @@
 #=====================================================================================================
         imports = with self.nixosModules; [
             machineHardware
-            niri
+            thinkfan
+            # niri
             # noctalia
             noctalia-shell
             noctaliaGreeter
@@ -30,7 +31,7 @@
             zsh
 
             # GUI Apps ===============================================================================
-
+            bottles
             # Services ===============================================================================
             syncthing
             keyd
@@ -198,7 +199,6 @@
         };
 
         hardware.nvidia = {
-
            open = false; 
            package = config.boot.kernelPackages.nvidiaPackages.stable; # properietary kernel module - most mature/well tested path for Turing class cards like T1000
            nvidiaSettings = true;
@@ -219,8 +219,9 @@
            powerManagement.enable = true;
            powerManagement.finegrained = true; # This lets the T1000 fully suspend (RTD3) when nothing's using it.
            videoAcceleration = true;
-
         };
+
+        services.lact.enable = true;
 
 #=====================================================================================================
 # Wayland

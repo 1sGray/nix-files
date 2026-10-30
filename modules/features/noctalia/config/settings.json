@@ -349,7 +349,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Seoul256 Hard",
+        "predefinedScheme": "Flexoki",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
