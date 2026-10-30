@@ -77,6 +77,7 @@
 
             # GUI Apps ===============================================================================
             obsidian
+            nautilus
             discord
             brave
             faugus-launcher
