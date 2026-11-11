@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
-	
-	flake.nixosModules.slsSteam = { pkgs, lib, username, ... }: let
+
+    flake.nixosModules.slsSteam = { pkgs, lib, username, ... }: let
 
         # # Build a 64-bit version of SLSsteam
         # slssteam64 = inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam.overrideAttrs (old: {
